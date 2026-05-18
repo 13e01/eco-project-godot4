@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://cs1pfbhylp53v"]
+
+[ext_resource type="Script" uid="uid://brum3ecqgeogd" path="res://scenes/ui/ui.gd" id="1_u7n8c"]
+[ext_resource type="Shader" uid="uid://bydaejapnuxlp" path="res://scenes/ui/ui.gdshader" id="2_f5cxw"]
+[ext_resource type="Shader" uid="uid://b78ef8whlqml2" path="res://scenes/ui/TimeJumpShader.gdshader" id="3_aac20"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g5kmx"]
+shader = ExtResource("3_aac20")
+shader_parameter/effect_power = 0.0
+shader_parameter/center = Vector2(0.5, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aac20"]
+shader = ExtResource("2_f5cxw")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.2
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[sub_resource type="LabelSettings" id="LabelSettings_f5cxw"]
+font_size = 120
+font_color = Color(0.99215686, 0, 0, 1)
+
+[node name="UI" type="CanvasLayer" unique_id=791356090]
+script = ExtResource("1_u7n8c")
+
+[node name="SproutHealthBar" type="ProgressBar" parent="." unique_id=1071275928]
+offset_left = 43.0
+offset_top = 64.0
+offset_right = 242.0
+offset_bottom = 91.0
+step = 0.1
+
+[node name="TimeJumpShader" type="ColorRect" parent="." unique_id=1161047136]
+material = SubResource("ShaderMaterial_g5kmx")
+offset_right = 1280.0
+offset_bottom = 720.0
+size_flags_horizontal = 4
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="GlitchEffect" type="ColorRect" parent="." unique_id=1451026889]
+visible = false
+material = SubResource("ShaderMaterial_aac20")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DeathScreen" type="Control" parent="." unique_id=1893151987]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="ColorRect" parent="DeathScreen" unique_id=1817887543]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.049776644, 0.049776644, 0.049776636, 1)
+
+[node name="LepeshkaText" type="Label" parent="DeathScreen" unique_id=160147320]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -11.5
+offset_right = 42.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "ЛЕПЕШКА!"
+label_settings = SubResource("LabelSettings_f5cxw")

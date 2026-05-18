@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://jt0n54vluq7m"]
+
+[ext_resource type="Script" uid="uid://djng8g24nfqxb" path="res://scenes/objects/box-trash/time_object.gd" id="1_2b6la"]
+[ext_resource type="Texture2D" uid="uid://cmep1gje1xqui" path="res://assets/free-swamp-game-tileset-pixel-art/3 Objects/Boxes/4.png" id="1_uj7in"]
+[ext_resource type="Texture2D" uid="uid://bf1l6x3pio7nl" path="res://assets/Trashville-Tileset-Package-v1.1/Trashville-Tileset-Package-v1.1.png" id="2_nsnc7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsnc7"]
+size = Vector2(32, 23.0625)
+
+[node name="TimeObject" type="StaticBody2D" unique_id=1838654051]
+script = ExtResource("1_2b6la")
+
+[node name="PastBox" type="CharacterBody2D" parent="." unique_id=228056866]
+
+[node name="Sprite2D" type="Sprite2D" parent="PastBox" unique_id=638921192]
+z_index = 5
+texture = ExtResource("1_uj7in")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PastBox" unique_id=1843351569]
+position = Vector2(0, 1.46875)
+shape = SubResource("RectangleShape2D_nsnc7")
+metadata/_edit_lock_ = true
+
+[node name="FutureTrash" type="StaticBody2D" parent="." unique_id=480933042]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="FutureTrash" unique_id=1621256970]
+z_index = 5
+position = Vector2(8, 0)
+texture = ExtResource("2_nsnc7")
+region_enabled = true
+region_rect = Rect2(296, 480, 16, 32)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="FutureTrash" unique_id=1099036454]
+z_index = 5
+position = Vector2(-8, 0)
+texture = ExtResource("2_nsnc7")
+region_enabled = true
+region_rect = Rect2(264, 480, 16, 32)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FutureTrash" unique_id=1803595073]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_nsnc7")

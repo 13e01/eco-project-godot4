@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://tflsbcyojch8"]
+
+[ext_resource type="Texture2D" uid="uid://bpu3b5y6f24e5" path="res://assets/free-swamp-game-tileset-pixel-art/2 Background/Background.png" id="1_gv5gl"]
+[ext_resource type="PackedScene" uid="uid://fkm7leeeha2m" path="res://assets/Trashville-Tileset-Package-v1.1/sprite_2d.tscn" id="2_s2nb7"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" unique_id=1370530708]
+
+[node name="ParallaxLayer_Nature" type="ParallaxLayer" parent="." unique_id=1985068121]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer_Nature" unique_id=19494511]
+position = Vector2(640, 360)
+scale = Vector2(2.2222223, 2.2222223)
+texture = ExtResource("1_gv5gl")
+
+[node name="ParallaxLayer_Trash" type="ParallaxLayer" parent="." unique_id=680946408]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(1280, 0)
+
+[node name="Sprite2D" parent="ParallaxLayer_Trash" unique_id=1130360714 instance=ExtResource("2_s2nb7")]
