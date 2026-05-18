@@ -60,13 +60,21 @@ func _input(event):
 		update_world_state()
 
 func update_world_state():
+	# 1. Управление видимостью и тайлами слоев
 	nature_layer.visible = !is_future
 	nature_layer.enabled = !is_future
 	trash_layer.visible = is_future
 	trash_layer.enabled = is_future
 	
+	# 2. РЕШЕНИЕ ПРОБЛЕМЫ: Отключение коллизий и логики всех дочерних StaticBody2D
+	# Если эпоха неактивна, process_mode = DISABLED полностью выключает физику и скрипты узла и его потомков
+	nature_layer.process_mode = Node.PROCESS_MODE_INHERIT if !is_future else Node.PROCESS_MODE_DISABLED
+	trash_layer.process_mode = Node.PROCESS_MODE_INHERIT if is_future else Node.PROCESS_MODE_DISABLED
+	
+	# 3. Синхронизация состояния игрока
 	player.is_in_future = is_future
 	
+	# 4. Визуальные эффекты перехода (Tween)
 	var tween = create_tween()
 	if is_future:
 		tween.tween_property(nature_bg, "modulate:a", 0.0, 0.5)
@@ -77,9 +85,8 @@ func update_world_state():
 		tween.parallel().tween_property(trash_bg, "modulate:a", 0.0, 0.5)
 		canvas_mod.color = Color(1, 1, 1)
 
-	# --- АВТОМАТИЧЕСКОЕ ПЕРЕКЛЮЧЕНИЕ ВСЕХ ОБЪЕКТОВ НА СЦЕНЕ ---
+	# 5. Оповещение независимых интерактивных объектов на сцене
 	get_tree().call_group("time_objects", "change_time_state", is_future)
-	# ---------------------------------------------------------
 
 func show_game_over():
 	if has_node("UI") and $UI.has_method("display_lepeshka_screen"):

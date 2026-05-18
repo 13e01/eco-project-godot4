@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://btl23h5olymw2"]
+
+[ext_resource type="Texture2D" uid="uid://7syr3xtvfal7" path="res://assets/free-swamp-game-tileset-pixel-art/3 Objects/Fence/2.png" id="1_i54bo"]
+
+[node name="woods2" type="Sprite2D" unique_id=1402014392]
+texture = ExtResource("1_i54bo")
+flip_h = true

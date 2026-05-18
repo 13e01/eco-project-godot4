@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://chjhdiwr6n4cl"]
+
+[ext_resource type="Texture2D" uid="uid://dbd6bu0spc313" path="res://assets/free-swamp-game-tileset-pixel-art/3 Objects/Willows/3.png" id="1_nn3hf"]
+
+[node name="willow1" type="Sprite2D" unique_id=922619941]
+texture = ExtResource("1_nn3hf")

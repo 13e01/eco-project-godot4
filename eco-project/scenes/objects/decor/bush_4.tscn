@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ccywqrprmkwgv"]
+
+[ext_resource type="Texture2D" uid="uid://64p8hf6y4tct" path="res://assets/free-swamp-game-tileset-pixel-art/3 Objects/Bushes/1.png" id="1_n6w5s"]
+
+[node name="bush4" type="Sprite2D" unique_id=96645424]
+texture = ExtResource("1_n6w5s")

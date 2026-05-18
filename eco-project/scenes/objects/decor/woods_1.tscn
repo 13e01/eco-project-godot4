@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://guoos6v1524m"]
+
+[ext_resource type="Texture2D" uid="uid://by5eb3d17l1mi" path="res://assets/free-swamp-game-tileset-pixel-art/3 Objects/Fence/1.png" id="1_vjek6"]
+
+[node name="woods1" type="Sprite2D" unique_id=1488999459]
+texture = ExtResource("1_vjek6")

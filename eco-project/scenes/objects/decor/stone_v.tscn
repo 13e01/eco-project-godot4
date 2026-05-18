@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://8h2dhy2wiqec"]
+
+[ext_resource type="Texture2D" uid="uid://dbidyx05ldfnc" path="res://assets/free-swamp-game-tileset-pixel-art/3 Objects/Stones/5.png" id="1_t7457"]
+
+[node name="stone_V" type="Sprite2D" unique_id=395761067]
+texture = ExtResource("1_t7457")

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://btrtop0vygkko"]
+
+[ext_resource type="Texture2D" uid="uid://bmqns85aoerk7" path="res://assets/free-swamp-game-tileset-pixel-art/3 Objects/Boxes/5.png" id="1_8xq6b"]
+
+[node name="broken_box" type="Sprite2D" unique_id=29581199]
+texture = ExtResource("1_8xq6b")
+flip_h = true
