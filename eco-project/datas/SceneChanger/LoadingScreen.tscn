@@ -1,5 +1,71 @@
 [gd_scene format=3 uid="uid://i1xxe4nx143a"]
 
+[ext_resource type="Texture2D" uid="uid://njou6e4lw7un" path="res://assets/godot_logo_anim-sheet.png" id="1_15r3t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn8f7"]
+atlas = ExtResource("1_15r3t")
+region = Rect2(0, 0, 96, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_318b3"]
+atlas = ExtResource("1_15r3t")
+region = Rect2(96, 0, 96, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x45x4"]
+atlas = ExtResource("1_15r3t")
+region = Rect2(192, 0, 96, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjw3v"]
+atlas = ExtResource("1_15r3t")
+region = Rect2(288, 0, 96, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t34xn"]
+atlas = ExtResource("1_15r3t")
+region = Rect2(384, 0, 96, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a41do"]
+atlas = ExtResource("1_15r3t")
+region = Rect2(480, 0, 96, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2312m"]
+atlas = ExtResource("1_15r3t")
+region = Rect2(576, 0, 96, 73)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sk2d5"]
+atlas = ExtResource("1_15r3t")
+region = Rect2(672, 0, 96, 73)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ey0tp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cn8f7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_318b3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x45x4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjw3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t34xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a41do")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2312m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sk2d5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="LoadingScreen" type="CanvasLayer" unique_id=1026252908]
 layer = 100
 
@@ -25,4 +91,13 @@ offset_bottom = -69.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 32
 max_value = 1.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1175384457]
+position = Vector2(640, 360)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_ey0tp")
+autoplay = "default"
+frame_progress = 0.8613526
+metadata/_edit_lock_ = true
