@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dqtg771l7offk"]
 
-[ext_resource type="Script" uid="uid://b826wmv0mgywb" path="res://datas/level_exit.gd" id="1_n11bh"]
+[ext_resource type="Script" uid="uid://b826wmv0mgywb" path="res://datas/SceneChanger/level_exit.gd" id="1_n11bh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jeted"]
 radius = 40.0
