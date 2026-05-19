@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dqtg771l7offk"]
+
+[ext_resource type="Script" uid="uid://b826wmv0mgywb" path="res://datas/level_exit.gd" id="1_n11bh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jeted"]
+radius = 40.0
+
+[node name="LevelExit" type="Area2D" unique_id=1477918023]
+collision_layer = 0
+script = ExtResource("1_n11bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1432260363]
+shape = SubResource("CircleShape2D_jeted")

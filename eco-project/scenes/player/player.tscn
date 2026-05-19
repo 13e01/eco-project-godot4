@@ -172,7 +172,7 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=1573313986]
+[node name="Player" type="CharacterBody2D" unique_id=1573313986 groups=["player"]]
 script = ExtResource("1_gmlin")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1755058928 groups=["player"]]
