@@ -1,6 +1,6 @@
 [gd_resource type="Theme" format=3 uid="uid://t0jm7ccsqt58"]
 
-[ext_resource type="FontFile" uid="uid://bmqlqlxdgxn7d" path="res://assets/fonts/pixelFont-7-8x14-sproutLands.ttf" id="1_uxmip"]
+[ext_resource type="FontFile" uid="uid://dtkpmu4qnqb8v" path="res://assets/fonts/HomeVideo-Regular.otf" id="1_uxmip"]
 
 [resource]
 default_font = ExtResource("1_uxmip")

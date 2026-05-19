@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bmqlqlxdgxn7d"
-path="res://.godot/imported/pixelFont-7-8x14-sproutLands.ttf-07fa98ce433c5a48d4cbd74c21385f4c.fontdata"
+uid="uid://dtkpmu4qnqb8v"
+path="res://.godot/imported/HomeVideo-Regular.otf-f0f165f69812e148011e616ad96373ec.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/pixelFont-7-8x14-sproutLands.ttf"
-dest_files=["res://.godot/imported/pixelFont-7-8x14-sproutLands.ttf-07fa98ce433c5a48d4cbd74c21385f4c.fontdata"]
+source_file="res://assets/fonts/HomeVideo-Regular.otf"
+dest_files=["res://.godot/imported/HomeVideo-Regular.otf-f0f165f69812e148011e616ad96373ec.fontdata"]
 
 [params]
 
