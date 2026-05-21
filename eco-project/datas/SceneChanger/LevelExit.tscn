@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b826wmv0mgywb" path="res://datas/SceneChanger/level_exit.gd" id="1_n11bh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jeted"]
-radius = 40.0
+radius = 64.0
 
 [node name="LevelExit" type="Area2D" unique_id=1477918023]
 collision_layer = 0

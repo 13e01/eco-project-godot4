@@ -191,9 +191,9 @@ metadata/_edit_lock_ = true
 zoom = Vector2(2, 2)
 limit_smoothed = true
 position_smoothing_enabled = true
-position_smoothing_speed = 3.0
+position_smoothing_speed = 10.0
 rotation_smoothing_enabled = true
-rotation_smoothing_speed = 3.0
+rotation_smoothing_speed = 10.0
 metadata/_edit_lock_ = true
 
 [node name="SproutHolder" type="Node2D" parent="." unique_id=7140105]
