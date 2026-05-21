@@ -3,6 +3,9 @@
 [ext_resource type="Script" uid="uid://brum3ecqgeogd" path="res://scenes/ui/ui.gd" id="1_u7n8c"]
 [ext_resource type="Shader" uid="uid://bydaejapnuxlp" path="res://scenes/ui/ui.gdshader" id="2_f5cxw"]
 [ext_resource type="Shader" uid="uid://b78ef8whlqml2" path="res://scenes/ui/TimeJumpShader.gdshader" id="3_aac20"]
+[ext_resource type="Script" uid="uid://ix55qkp0sfxp" path="res://scenes/ui/round_progress_bar.gd" id="4_g5kmx"]
+
+[sub_resource type="Theme" id="Theme_0dwhk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g5kmx"]
 shader = ExtResource("3_aac20")
@@ -25,10 +28,12 @@ font_color = Color(0.99215686, 0, 0, 1)
 script = ExtResource("1_u7n8c")
 
 [node name="SproutHealthBar" type="ProgressBar" parent="." unique_id=1071275928]
+visible = false
 offset_left = 43.0
 offset_top = 64.0
 offset_right = 242.0
 offset_bottom = 91.0
+theme = SubResource("Theme_0dwhk")
 step = 0.1
 
 [node name="TimeJumpShader" type="ColorRect" parent="." unique_id=1161047136]
@@ -100,3 +105,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 29
 text = "Может стоит подумать почему так?"
+
+[node name="RoundProgressBar" type="Control" parent="." unique_id=1841521247]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 100.0
+grow_vertical = 0
+script = ExtResource("4_g5kmx")
