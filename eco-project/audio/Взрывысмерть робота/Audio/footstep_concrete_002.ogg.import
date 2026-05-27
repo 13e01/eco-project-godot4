@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://gtsudb55i0wv"
+path="res://.godot/imported/footstep_concrete_002.ogg-e0efb9f028f07b81de80d0815c65966b.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Взрывысмерть робота/Audio/footstep_concrete_002.ogg"
+dest_files=["res://.godot/imported/footstep_concrete_002.ogg-e0efb9f028f07b81de80d0815c65966b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

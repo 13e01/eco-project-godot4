@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dwapws13hg7k5"
+path="res://.godot/imported/laserSmall_004.ogg-2d8e9b0ba24b60d0e843d7f522150b35.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Переключение эпох (E)/Audio/laserSmall_004.ogg"
+dest_files=["res://.godot/imported/laserSmall_004.ogg-2d8e9b0ba24b60d0e843d7f522150b35.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

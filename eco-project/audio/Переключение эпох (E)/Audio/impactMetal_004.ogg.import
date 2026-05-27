@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bkacsr06e1yk2"
+path="res://.godot/imported/impactMetal_004.ogg-52280054d7045ea371e5e2a7e1097050.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Переключение эпох (E)/Audio/impactMetal_004.ogg"
+dest_files=["res://.godot/imported/impactMetal_004.ogg-52280054d7045ea371e5e2a7e1097050.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

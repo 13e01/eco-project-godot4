@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://4a8hlv1i6fa"
+path="res://.godot/imported/footstep_grass_002.ogg-6c9288cdddd65b7fb4c198ebd887587f.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Взрывысмерть робота/Audio/footstep_grass_002.ogg"
+dest_files=["res://.godot/imported/footstep_grass_002.ogg-6c9288cdddd65b7fb4c198ebd887587f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

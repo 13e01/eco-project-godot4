@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bvd1h0ye8tt4y"
+path="res://.godot/imported/footstep_carpet_004.ogg-cc30963b7407675418d4bf820303e97f.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Взрывысмерть робота/Audio/footstep_carpet_004.ogg"
+dest_files=["res://.godot/imported/footstep_carpet_004.ogg-cc30963b7407675418d4bf820303e97f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

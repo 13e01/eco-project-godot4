@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://systems/eco/eco_object.gd" id="1_eco_object"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trash"]
+size = Vector2(32, 24)
+
+[node name="EcoObject" type="Area2D"]
+collision_layer = 0
+collision_mask = 1
+script = ExtResource("1_eco_object")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_trash")
+
+[node name="DirtyVisual" type="Node2D" parent="."]
+
+[node name="TrashMark" type="Polygon2D" parent="DirtyVisual"]
+color = Color(0.22, 0.18, 0.16, 1)
+polygon = PackedVector2Array(-14, -8, 12, -12, 17, 8, 4, 15, -16, 10)
+
+[node name="CleanVisual" type="Node2D" parent="."]
+visible = false
+
+[node name="CleanSpark" type="Polygon2D" parent="CleanVisual"]
+color = Color(0.44, 0.82, 0.48, 0.85)
+polygon = PackedVector2Array(0, -14, 4, -3, 15, 0, 4, 3, 0, 14, -4, 3, -15, 0, -4, -3)

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://2upncqcjmq7m"
+path="res://.godot/imported/lowDown.ogg-08bddc5fc464de1fce3922961c1a2b2e.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Loading screen/Audio/lowDown.ogg"
+dest_files=["res://.godot/imported/lowDown.ogg-08bddc5fc464de1fce3922961c1a2b2e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

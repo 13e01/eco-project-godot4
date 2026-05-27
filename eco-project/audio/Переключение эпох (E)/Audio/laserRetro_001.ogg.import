@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://djvg5oxyxuawn"
+path="res://.godot/imported/laserRetro_001.ogg-ec7e1c1c4a865fe10f07c8685ca9879f.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Переключение эпох (E)/Audio/laserRetro_001.ogg"
+dest_files=["res://.godot/imported/laserRetro_001.ogg-ec7e1c1c4a865fe10f07c8685ca9879f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

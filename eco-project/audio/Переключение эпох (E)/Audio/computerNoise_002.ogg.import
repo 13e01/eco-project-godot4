@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ipxp3a52xbsj"
+path="res://.godot/imported/computerNoise_002.ogg-4bfa474c84e8b2c84de7c719031215bb.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Переключение эпох (E)/Audio/computerNoise_002.ogg"
+dest_files=["res://.godot/imported/computerNoise_002.ogg-4bfa474c84e8b2c84de7c719031215bb.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ynqign5nh3ur"
+path="res://.godot/imported/doorOpen_002.ogg-9fe6319e268f11c8cbd86f2cb47333ca.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Переключение эпох (E)/Audio/doorOpen_002.ogg"
+dest_files=["res://.godot/imported/doorOpen_002.ogg-9fe6319e268f11c8cbd86f2cb47333ca.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

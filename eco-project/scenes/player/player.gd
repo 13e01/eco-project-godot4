@@ -15,6 +15,8 @@ const SQUASH_SPEED = 15.0
 
 var coyote_timer = 0.0
 var jump_lockout_timer = 0.0 # НОВЫЙ ТАЙМЕР: жесткая блокировка прыжка при поломке
+var footstep_timer: float = 0.0
+const FOOTSTEP_INTERVAL: float = 0.34
 
 # --- СОСТОЯНИЕ СМЕРТИ ---
 var is_dying = false
@@ -66,6 +68,7 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		coyote_timer = 0.0
 		sprite.scale = Vector2(0.8, 1.2)
+		AudioManager.play_event(&"jump")
 
 	var direction = Input.get_axis("ui_left", "ui_right")
 	var max_allowed_speed = SPEED if is_on_floor() else SPEED * AIR_CONTROL_MULTIPLIER
@@ -105,6 +108,19 @@ func _physics_process(delta):
 
 	if is_on_floor() and not was_on_floor:
 		sprite.scale = Vector2(1.3, 0.7)
+		AudioManager.play_event(&"land")
+
+	if is_on_floor() and absf(velocity.x) > 40.0:
+		footstep_timer -= delta
+		if footstep_timer <= 0.0:
+			footstep_timer = FOOTSTEP_INTERVAL
+			AudioManager.play_event(&"footstep_trash" if is_in_future else &"footstep_swamp")
+	else:
+		footstep_timer = 0.0
+
+	var is_low_hp: bool = current_health < 40.0 and current_health > 0.01
+	var low_hp_intensity: float = clampf(remap(current_health, 40.0, 0.0, 0.0, 1.0), 0.0, 1.0)
+	AudioManager.set_low_hp_state(is_low_hp, low_hp_intensity)
 
 	sprite.scale.x = lerp(sprite.scale.x, 1.0, SQUASH_SPEED * delta)
 	sprite.scale.y = lerp(sprite.scale.y, 1.0, SQUASH_SPEED * delta)
@@ -117,6 +133,7 @@ func start_death_sequence():
 	
 	target_death_zoom = camera.zoom * 2.5
 	print("Бум! Робот раздавлен. Приближаем камеру до: ", target_death_zoom)
+	AudioManager.play_event(&"death", {"volume_db": -2.0})
 
 func _process_death_sequence(delta):
 	# ... (Код смерти остался без изменений) ...
@@ -142,3 +159,11 @@ func _process_death_sequence(delta):
 
 func input_jump():
 	return Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")
+
+func _ready() -> void:
+	add_to_group("player")
+	current_health = max_health
+	AudioManager.play_event(&"respawn", {"volume_db": -9.0})
+
+func _on_health_changed(_new_value: float) -> void:
+	pass

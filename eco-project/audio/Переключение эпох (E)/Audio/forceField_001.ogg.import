@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cq67dnpcy6rbh"
+path="res://.godot/imported/forceField_001.ogg-8554031568328de0e658e3e2eced9c22.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Переключение эпох (E)/Audio/forceField_001.ogg"
+dest_files=["res://.godot/imported/forceField_001.ogg-8554031568328de0e658e3e2eced9c22.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

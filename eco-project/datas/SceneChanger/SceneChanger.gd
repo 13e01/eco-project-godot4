@@ -10,6 +10,7 @@ var loading_screen_scene: PackedScene = preload("res://datas/SceneChanger/Loadin
 
 
 func change_level(target_scene_path: String) -> void:
+	AudioManager.on_loading_start()
 	# 1. Валидация и конвертация путей
 	if target_scene_path.begins_with("uid://"):
 		var id: int = ResourceUID.text_to_id(target_scene_path)
@@ -81,6 +82,7 @@ func change_level(target_scene_path: String) -> void:
 			current_progress = fluid_curve
 			
 		progress_bar.value = current_progress * progress_bar.max_value
+		AudioManager.set_loading_progress(current_progress)
 		
 		if status == ResourceLoader.THREAD_LOAD_LOADED and time_ratio >= 1.0:
 			break
@@ -96,6 +98,7 @@ func change_level(target_scene_path: String) -> void:
 	tween_out.tween_property(background, "modulate:a", 0.0, FADE_DURATION)
 	tween_out.tween_property(progress_bar, "modulate:a", 0.0, FADE_DURATION)
 	await tween_out.finished
+	AudioManager.on_loading_end()
 	
 	# Освобождение памяти
 	loading_screen.queue_free()

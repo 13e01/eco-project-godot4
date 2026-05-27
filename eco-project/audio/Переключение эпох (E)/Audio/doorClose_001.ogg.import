@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cj7c1324k1ytt"
+path="res://.godot/imported/doorClose_001.ogg-5a1612d6f3b2d0b3b52c903b4bd27ae6.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Переключение эпох (E)/Audio/doorClose_001.ogg"
+dest_files=["res://.godot/imported/doorClose_001.ogg-5a1612d6f3b2d0b3b52c903b4bd27ae6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

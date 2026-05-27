@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c0y0gnv72l8ex"
+path="res://.godot/imported/impactPlank_medium_004.ogg-339695cdef5d210dd4f4aca8444b8f2a.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Взрывысмерть робота/Audio/impactPlank_medium_004.ogg"
+dest_files=["res://.godot/imported/impactPlank_medium_004.ogg-339695cdef5d210dd4f4aca8444b8f2a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://db27x0pwohixe"
+path="res://.godot/imported/spaceTrash1.ogg-61b7da4e1c38f6b964b3f47229631e55.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Loading screen/Audio/spaceTrash1.ogg"
+dest_files=["res://.godot/imported/spaceTrash1.ogg-61b7da4e1c38f6b964b3f47229631e55.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

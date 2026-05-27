@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dg1ito1btx6if"
+path="res://.godot/imported/impactGlass_light_003.ogg-8e9b22db1452e2a2dcb1c9c773b2b71b.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Взрывысмерть робота/Audio/impactGlass_light_003.ogg"
+dest_files=["res://.godot/imported/impactGlass_light_003.ogg-8e9b22db1452e2a2dcb1c9c773b2b71b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://c1rxk0u0ah5ji"
+path="res://.godot/imported/impactSoft_medium_002.ogg-024862bcbbe918d89498cd859b4e06a6.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Взрывысмерть робота/Audio/impactSoft_medium_002.ogg"
+dest_files=["res://.godot/imported/impactSoft_medium_002.ogg-024862bcbbe918d89498cd859b4e06a6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

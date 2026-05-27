@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://4to3ief31a4g"
+path="res://.godot/imported/laser4.ogg-5c91edea309187e6ac57c900e91a5b5d.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Loading screen/Audio/laser4.ogg"
+dest_files=["res://.godot/imported/laser4.ogg-5c91edea309187e6ac57c900e91a5b5d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

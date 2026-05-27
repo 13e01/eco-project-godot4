@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://3o577qr34p1t"
+path="res://.godot/imported/footstep_wood_000.ogg-10229f2b956822de0ec4d7fddfba4d66.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Взрывысмерть робота/Audio/footstep_wood_000.ogg"
+dest_files=["res://.godot/imported/footstep_wood_000.ogg-10229f2b956822de0ec4d7fddfba4d66.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

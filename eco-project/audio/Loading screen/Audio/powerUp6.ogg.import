@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bihd14gkejnl1"
+path="res://.godot/imported/powerUp6.ogg-9a3944278018a0c43323a55bfbe050e8.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Loading screen/Audio/powerUp6.ogg"
+dest_files=["res://.godot/imported/powerUp6.ogg-9a3944278018a0c43323a55bfbe050e8.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

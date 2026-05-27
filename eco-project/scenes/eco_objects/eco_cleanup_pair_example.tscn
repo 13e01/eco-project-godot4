@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/eco_objects/eco_object.tscn" id="1_past"]
+[ext_resource type="PackedScene" path="res://scenes/eco_objects/eco_future_effect.tscn" id="2_future"]
+
+[node name="EcoCleanupPairExample" type="Node2D"]
+
+[node name="PastTrashCleanup" parent="." instance=ExtResource("1_past")]
+position = Vector2(0, 0)
+eco_id = &"example_trash_shortcut_01"
+reward_points = 25
+restoration_weight = 2.0
+
+[node name="FutureShortcutEffect" parent="." instance=ExtResource("2_future")]
+position = Vector2(128, 0)
+eco_id = &"example_trash_shortcut_01"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dycm83r82lrv4"
+path="res://.godot/imported/explosionCrunch_001.ogg-d9b06c2e666035e841ab184311fa5170.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Переключение эпох (E)/Audio/explosionCrunch_001.ogg"
+dest_files=["res://.godot/imported/explosionCrunch_001.ogg-d9b06c2e666035e841ab184311fa5170.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

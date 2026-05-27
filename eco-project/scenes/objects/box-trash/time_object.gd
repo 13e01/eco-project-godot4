@@ -7,6 +7,7 @@ const BOX_FRICTION = 800.0
 @onready var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var start_position: Vector2
+var push_sfx_cooldown: float = 0.0
 
 # Состояния головоломки
 var is_box_broken = false
@@ -19,17 +20,22 @@ func _ready():
 	change_time_state(false)
 
 func _physics_process(delta):
+	push_sfx_cooldown -= delta
 	if past_box.visible and not is_box_broken:
 		if not past_box.is_on_floor():
 			past_box.velocity.y += gravity * delta
 		
 		past_box.velocity.x = move_toward(past_box.velocity.x, 0, BOX_FRICTION * delta)
 		past_box.move_and_slide()
+		if absf(past_box.velocity.x) > 40.0 and push_sfx_cooldown <= 0.0:
+			push_sfx_cooldown = 0.22
+			AudioManager.play_event(&"time_object_push", {"volume_db": -11.0})
 	
 	future_trash.global_position = past_box.global_position
 
 func change_time_state(is_future):
 	current_is_future = is_future
+	AudioManager.play_event(&"time_object_ghost", {"volume_db": -12.0})
 	
 	if is_future:
 		future_trash.visible = true
@@ -61,6 +67,7 @@ func destroy_box_effect():
 		
 	is_box_broken = true
 	print("1. Хрусь! Коробка потеряла коллизию на месте. Робот падает сквозь неё.")
+	AudioManager.play_event(&"time_object_break", {"volume_db": -6.0})
 	
 	past_box.velocity = Vector2.ZERO
 	change_time_state(current_is_future)
@@ -78,5 +85,6 @@ func destroy_box_effect():
 	
 	print("3. Прошли 3 секунды на спавне. Коробка снова твердая и готова к работе!")
 	is_box_broken = false
+	AudioManager.play_event(&"time_object_respawn", {"volume_db": -10.0})
 	
 	change_time_state(current_is_future)

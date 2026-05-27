@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://systems/eco/eco_future_effect.gd" id="1_future_effect"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_block"]
+size = Vector2(64, 32)
+
+[node name="EcoFutureEffect" type="Node2D"]
+script = ExtResource("1_future_effect")
+dirty_node_path = NodePath("DirtyFuture")
+clean_node_path = NodePath("CleanFuture")
+affected_collision_paths = [NodePath("StaticBody2D/CollisionShape2D")]
+
+[node name="DirtyFuture" type="Node2D" parent="."]
+
+[node name="DirtyBlock" type="Polygon2D" parent="DirtyFuture"]
+color = Color(0.25, 0.23, 0.22, 1)
+polygon = PackedVector2Array(-32, -16, 32, -16, 32, 16, -32, 16)
+
+[node name="CleanFuture" type="Node2D" parent="."]
+visible = false
+
+[node name="PlantPlatform" type="Polygon2D" parent="CleanFuture"]
+color = Color(0.27, 0.68, 0.36, 1)
+polygon = PackedVector2Array(-32, -12, 32, -12, 28, 12, -28, 12)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_block")

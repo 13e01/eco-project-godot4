@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ct6jcveiovspm"
+path="res://.godot/imported/impactBell_heavy_001.ogg-bb6c0be28a3c2ecfff44fb433508089a.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Взрывысмерть робота/Audio/impactBell_heavy_001.ogg"
+dest_files=["res://.godot/imported/impactBell_heavy_001.ogg-bb6c0be28a3c2ecfff44fb433508089a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

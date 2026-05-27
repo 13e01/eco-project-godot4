@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dj3ot3d61te8e"
+path="res://.godot/imported/engineCircular_000.ogg-75de7e049b8eea5a9dbe221cce5ccdfa.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Переключение эпох (E)/Audio/engineCircular_000.ogg"
+dest_files=["res://.godot/imported/engineCircular_000.ogg-75de7e049b8eea5a9dbe221cce5ccdfa.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

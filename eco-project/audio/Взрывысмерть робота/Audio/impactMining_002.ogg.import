@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b4a3it3w3gk25"
+path="res://.godot/imported/impactMining_002.ogg-629c4e62a950f20f9ea37b6fa45e54f3.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Взрывысмерть робота/Audio/impactMining_002.ogg"
+dest_files=["res://.godot/imported/impactMining_002.ogg-629c4e62a950f20f9ea37b6fa45e54f3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

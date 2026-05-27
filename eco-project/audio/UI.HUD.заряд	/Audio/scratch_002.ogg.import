@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dhrx4ieoci1gv"
+path="res://.godot/imported/scratch_002.ogg-5ab10fa9f2f07b346dad8b7024abc98c.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/UI.HUD.заряд	/Audio/scratch_002.ogg"
+dest_files=["res://.godot/imported/scratch_002.ogg-5ab10fa9f2f07b346dad8b7024abc98c.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

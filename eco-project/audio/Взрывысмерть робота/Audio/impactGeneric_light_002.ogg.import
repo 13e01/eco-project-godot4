@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://famox76cryl5"
+path="res://.godot/imported/impactGeneric_light_002.ogg-d4b57c68a864fb35e44fbe54223525d6.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Взрывысмерть робота/Audio/impactGeneric_light_002.ogg"
+dest_files=["res://.godot/imported/impactGeneric_light_002.ogg-d4b57c68a864fb35e44fbe54223525d6.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

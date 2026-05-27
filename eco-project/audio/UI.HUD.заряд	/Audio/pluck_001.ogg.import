@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://tq6qujv4np56"
+path="res://.godot/imported/pluck_001.ogg-57dbb5d1a169c86b468c1351bf3d83fe.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/UI.HUD.заряд	/Audio/pluck_001.ogg"
+dest_files=["res://.godot/imported/pluck_001.ogg-57dbb5d1a169c86b468c1351bf3d83fe.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

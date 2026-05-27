@@ -12,6 +12,12 @@ var is_future = false
 const TIME_COOLDOWN_DURATION = 2.0 
 var time_cooldown_timer = 0.0
 
+func _enter_tree():
+	var level_id := scene_file_path
+	if level_id.is_empty():
+		level_id = name
+	EcoManager.begin_level(level_id)
+
 func _ready():
 	nature_bg.visible = true
 	trash_bg.visible = true
@@ -23,8 +29,13 @@ func _ready():
 	
 	if player.has_signal("player_crushed"):
 		player.player_crushed.connect(show_game_over)
+
+	if has_node("UI") and $UI.has_method("connect_eco_manager"):
+		$UI.connect_eco_manager(EcoManager)
 	
 	update_world_state()
+	EcoManager.apply_registered_states()
+	AudioManager.set_time_era(false)
 
 func _process(delta):
 	if player.is_dying:
@@ -39,6 +50,7 @@ func _process(delta):
 			$UI.play_time_tunnel_effect()
 		update_world_state()
 		print("Критический разряд! Возврат в прошлое...")
+		AudioManager.play_event(&"time_auto_eject", {"volume_db": -5.0})
 
 func _input(event):
 	if player.is_dying:
@@ -46,10 +58,12 @@ func _input(event):
 
 	if event.is_action_pressed("switch_time"):
 		if time_cooldown_timer > 0.0:
+			AudioManager.play_event(&"time_switch_denied", {"volume_db": -9.0})
 			return
 
 		if not is_future and player.current_health <= 5:
 			print("Недостаточно заряда для прыжка!")
+			AudioManager.play_event(&"time_switch_denied", {"volume_db": -8.0})
 			return
 			
 		if has_node("UI") and $UI.has_method("play_time_tunnel_effect"):
@@ -58,6 +72,7 @@ func _input(event):
 		is_future = !is_future
 		time_cooldown_timer = TIME_COOLDOWN_DURATION
 		update_world_state()
+		AudioManager.play_event(&"time_switch_ok", {"volume_db": -4.0})
 
 func update_world_state():
 	# 1. Управление видимостью и тайлами слоев
@@ -73,6 +88,7 @@ func update_world_state():
 	
 	# 3. Синхронизация состояния игрока
 	player.is_in_future = is_future
+	AudioManager.set_time_era(is_future)
 	
 	# 4. Визуальные эффекты перехода (Tween)
 	var tween = create_tween()
@@ -87,6 +103,7 @@ func update_world_state():
 
 	# 5. Оповещение независимых интерактивных объектов на сцене
 	get_tree().call_group("time_objects", "change_time_state", is_future)
+	EcoManager.apply_registered_states()
 
 func show_game_over():
 	if has_node("UI") and $UI.has_method("display_lepeshka_screen"):

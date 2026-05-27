@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ec1rn1b5vndk"
+path="res://.godot/imported/impactMetal_light_002.ogg-1fe23b9d35c90f6f43820fabdb3f9799.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/Взрывысмерть робота/Audio/impactMetal_light_002.ogg"
+dest_files=["res://.godot/imported/impactMetal_light_002.ogg-1fe23b9d35c90f6f43820fabdb3f9799.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
