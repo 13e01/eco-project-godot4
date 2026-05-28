@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c2klc6e400frl"]
+
+[ext_resource type="PackedScene" uid="uid://chiyevmljwqe2" path="res://scenes/maps/level_1/level1.tscn" id="1_3hls8"]
+
+[node name="Level1" unique_id=1610960536 instance=ExtResource("1_3hls8")]
+
+[node name="EcoTrashShortcut" parent="World2D" parent_id_path=PackedInt32Array(399144006) index="2"]
+position = Vector2(351, 794)
+
+[node name="FutureShortcutBlock" parent="World2D" parent_id_path=PackedInt32Array(399144006) index="3"]
+position = Vector2(1997, 741)
+
+[node name="EcoToxicBarrel" parent="World2D" parent_id_path=PackedInt32Array(399144006) index="4"]
+position = Vector2(44, 827)
+
+[node name="FutureToxicFloor" parent="World2D" parent_id_path=PackedInt32Array(399144006) index="5"]
+position = Vector2(792, 752)
+
+[node name="EcoOilWaste" parent="World2D" parent_id_path=PackedInt32Array(399144006) index="6"]
+position = Vector2(1850, 399)
+
+[node name="FuturePlantPlatform" parent="World2D" parent_id_path=PackedInt32Array(399144006) index="7"]
+position = Vector2(634, 790)
+
+[node name="EcoScrapGate" parent="World2D" parent_id_path=PackedInt32Array(399144006) index="8"]
+position = Vector2(1059, 811)
+
+[node name="FutureScrapGate" parent="World2D" parent_id_path=PackedInt32Array(399144006) index="9"]
+position = Vector2(1388, 801.9999)
+
+[node name="EcoMachineWaste" parent="World2D" parent_id_path=PackedInt32Array(399144006) index="10"]
+position = Vector2(107, 227)
+
+[node name="FutureMachineClutter" parent="World2D" parent_id_path=PackedInt32Array(399144006) index="11"]
+position = Vector2(903, 808)
+
+[node name="CollisionShape2D" parent="LevelExit" parent_id_path=PackedInt32Array(1477918023) index="0" unique_id=1432260363]
+position = Vector2(-3, -79)

@@ -70,7 +70,7 @@ func _physics_process(delta):
 		sprite.scale = Vector2(0.8, 1.2)
 		AudioManager.play_event(&"jump")
 
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("move_left", "move_right")
 	var max_allowed_speed = SPEED if is_on_floor() else SPEED * AIR_CONTROL_MULTIPLIER
 
 	if direction:
@@ -132,7 +132,6 @@ func start_death_sequence():
 	sprite.play("idle")
 	
 	target_death_zoom = camera.zoom * 2.5
-	print("Бум! Робот раздавлен. Приближаем камеру до: ", target_death_zoom)
 	AudioManager.play_event(&"death", {"volume_db": -2.0})
 
 func _process_death_sequence(delta):
@@ -158,7 +157,7 @@ func _process_death_sequence(delta):
 		player_crushed.emit() 
 
 func input_jump():
-	return Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")
+	return Input.is_action_just_pressed("jump")
 
 func _ready() -> void:
 	add_to_group("player")

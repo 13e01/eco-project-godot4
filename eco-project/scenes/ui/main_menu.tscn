@@ -1,0 +1,176 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_menu"]
+[ext_resource type="Shader" path="res://scenes/ui/eco_menu_contrast.gdshader" id="2_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_menu"]
+shader = ExtResource("2_shader")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="EcoFutureContrast" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+material = SubResource("ShaderMaterial_menu")
+color = Color(1, 1, 1, 1)
+
+[node name="AtmosphereLines" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.18)
+
+[node name="Content" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 70.0
+offset_right = -96.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 72
+
+[node name="TitleBlock" type="VBoxContainer" parent="Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Content/TitleBlock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "ECO SHIFT"
+
+[node name="Subtitle" type="Label" parent="Content/TitleBlock"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Past actions. Future scars. Visible repair."
+
+[node name="ButtonPanel" type="VBoxContainer" parent="Content"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="StartButton" type="Button" parent="Content/ButtonPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Start Game"
+
+[node name="ContinueButton" type="Button" parent="Content/ButtonPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Continue"
+
+[node name="SettingsButton" type="Button" parent="Content/ButtonPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="Content/ButtonPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Quit"
+
+[node name="SettingsPanel" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -205.0
+offset_right = 240.0
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsBox" type="VBoxContainer" parent="SettingsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SettingsTitle" type="Label" parent="SettingsPanel/SettingsBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="MasterLabel" type="Label" parent="SettingsPanel/SettingsBox"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="SettingsPanel/SettingsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="MusicLabel" type="Label" parent="SettingsPanel/SettingsBox"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="SettingsPanel/SettingsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="SfxLabel" type="Label" parent="SettingsPanel/SettingsBox"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="SfxSlider" type="HSlider" parent="SettingsPanel/SettingsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.01
+value = 1.0
+
+[node name="FullscreenToggle" type="CheckButton" parent="SettingsPanel/SettingsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fullscreen"
+
+[node name="ResolutionOptions" type="OptionButton" parent="SettingsPanel/SettingsBox"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="SettingsPanel/SettingsBox"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="Content/ButtonPanel/StartButton" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Content/ButtonPanel/ContinueButton" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Content/ButtonPanel/SettingsButton" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Content/ButtonPanel/QuitButton" to="." method="_on_quit_pressed"]
+[connection signal="value_changed" from="SettingsPanel/SettingsBox/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="SettingsPanel/SettingsBox/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="SettingsPanel/SettingsBox/SfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="toggled" from="SettingsPanel/SettingsBox/FullscreenToggle" to="." method="_on_fullscreen_toggle_toggled"]
+[connection signal="item_selected" from="SettingsPanel/SettingsBox/ResolutionOptions" to="." method="_on_resolution_options_item_selected"]
+[connection signal="pressed" from="SettingsPanel/SettingsBox/BackButton" to="." method="_on_back_pressed"]

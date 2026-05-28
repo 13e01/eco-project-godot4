@@ -1,5 +1,7 @@
 extends Node2D
 
+const EcoPolishDirector := preload("res://systems/presentation/eco_polish_director.gd")
+
 @onready var nature_layer = $World2D/TileMapLayer_Nature
 @onready var trash_layer = $World2D/TileMapLayer_Trash
 @onready var nature_bg = $ParallaxBackground/ParallaxLayer_Nature
@@ -8,6 +10,8 @@ extends Node2D
 @onready var player = $Player
 
 var is_future = false
+var eco_polish_director: Node2D
+var _final_sequence_started := false
 
 const TIME_COOLDOWN_DURATION = 2.0 
 var time_cooldown_timer = 0.0
@@ -32,6 +36,11 @@ func _ready():
 
 	if has_node("UI") and $UI.has_method("connect_eco_manager"):
 		$UI.connect_eco_manager(EcoManager)
+
+	eco_polish_director = EcoPolishDirector.new()
+	eco_polish_director.name = "EcoPolishDirector"
+	add_child(eco_polish_director)
+	eco_polish_director.setup(self, $World2D, player, canvas_mod)
 	
 	update_world_state()
 	EcoManager.apply_registered_states()
@@ -53,7 +62,7 @@ func _process(delta):
 		AudioManager.play_event(&"time_auto_eject", {"volume_db": -5.0})
 
 func _input(event):
-	if player.is_dying:
+	if player.is_dying or _final_sequence_started:
 		return
 
 	if event.is_action_pressed("switch_time"):
@@ -89,6 +98,8 @@ func update_world_state():
 	# 3. Синхронизация состояния игрока
 	player.is_in_future = is_future
 	AudioManager.set_time_era(is_future)
+	if eco_polish_director and eco_polish_director.has_method("set_future_state"):
+		eco_polish_director.set_future_state(is_future)
 	
 	# 4. Визуальные эффекты перехода (Tween)
 	var tween = create_tween()
@@ -108,6 +119,39 @@ func update_world_state():
 func show_game_over():
 	if has_node("UI") and $UI.has_method("display_lepeshka_screen"):
 		$UI.display_lepeshka_screen()
+
+func play_final_sequence(target_scene_path: String, trigger_position: Vector2) -> void:
+	if _final_sequence_started:
+		return
+	_final_sequence_started = true
+	set_process_input(false)
+	player.set_physics_process(false)
+	player.velocity = Vector2.ZERO
+
+	is_future = true
+	update_world_state()
+	AudioManager.play_event(&"future_changed", {"volume_db": -3.0, "pitch": 0.85})
+
+	var camera := player.get_node_or_null("Camera2D") as Camera2D
+	if camera:
+		var camera_tween := create_tween()
+		camera_tween.tween_property(camera, "zoom", camera.zoom * 1.25, 0.75)
+		camera_tween.parallel().tween_property(camera, "offset", (trigger_position - player.global_position) * 0.18, 0.75)
+
+	var fade_layer := CanvasLayer.new()
+	fade_layer.name = "FinalSequenceFade"
+	add_child(fade_layer)
+	var fade := ColorRect.new()
+	fade.set_anchors_preset(Control.PRESET_FULL_RECT)
+	fade.color = Color(0.0, 0.0, 0.0, 0.0)
+	fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	fade_layer.add_child(fade)
+
+	var tween := create_tween()
+	tween.tween_interval(0.55)
+	tween.tween_property(fade, "color:a", 1.0, 0.85)
+	await tween.finished
+	SceneChanger.change_level(target_scene_path)
 
 func restart_level_safe():
 	await get_tree().create_timer(2.0).timeout

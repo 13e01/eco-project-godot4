@@ -12481,89 +12481,93 @@ text = "Т
 и
 к"
 
-[node name="EcoTrashShortcut" parent="World2D" instance=ExtResource("30_ecoob")]
-position = Vector2(380, 670)
-cleanup_mode = 1
+[node name="EcoTrashShortcut" parent="World2D" unique_id=685713634 instance=ExtResource("30_ecoob")]
+position = Vector2(377, 690)
 eco_id = &"tutorial_trash_shortcut"
-reward_points = 10
+cleanup_mode = 1
+reward_points = null
+restoration_weight = null
+cleaned_by_default = null
+hide_when_cleaned = null
+disable_collision_when_cleaned = null
+clean_requires_past = null
+floating_text_offset = null
 
-[node name="TrashMark" parent="World2D/EcoTrashShortcut/DirtyVisual" index="0"]
-color = Color(0.2, 0.18, 0.14, 1)
-
-[node name="FutureShortcutBlock" parent="World2D" instance=ExtResource("31_ecofx")]
+[node name="FutureShortcutBlock" parent="World2D" unique_id=195738613 instance=ExtResource("31_ecofx")]
 position = Vector2(610, 650)
 eco_id = &"tutorial_trash_shortcut"
 effect_type = 4
 
-[node name="DirtyBlock" parent="World2D/FutureShortcutBlock/DirtyFuture" index="0"]
-color = Color(0.18, 0.16, 0.15, 1)
-
-[node name="EcoToxicBarrel" parent="World2D" instance=ExtResource("30_ecoob")]
+[node name="EcoToxicBarrel" parent="World2D" unique_id=939239817 instance=ExtResource("30_ecoob")]
 position = Vector2(545, 670)
 scale = Vector2(0.9, 1.2)
-cleanup_mode = 1
 eco_id = &"tutorial_toxic_barrel"
+cleanup_mode = 1
 reward_points = 15
 restoration_weight = 1.5
+cleaned_by_default = null
+hide_when_cleaned = null
+disable_collision_when_cleaned = null
+clean_requires_past = null
+floating_text_offset = null
 
-[node name="TrashMark" parent="World2D/EcoToxicBarrel/DirtyVisual" index="0"]
-color = Color(0.36, 0.55, 0.12, 1)
-
-[node name="FutureToxicFloor" parent="World2D" instance=ExtResource("31_ecofx")]
+[node name="FutureToxicFloor" parent="World2D" unique_id=1672688059 instance=ExtResource("31_ecofx")]
 position = Vector2(800, 700)
 scale = Vector2(1.45, 0.45)
 eco_id = &"tutorial_toxic_barrel"
 effect_type = 4
 
-[node name="DirtyBlock" parent="World2D/FutureToxicFloor/DirtyFuture" index="0"]
-color = Color(0.38, 0.75, 0.12, 0.9)
-
-[node name="EcoOilWaste" parent="World2D" instance=ExtResource("30_ecoob")]
-position = Vector2(710, 670)
+[node name="EcoOilWaste" parent="World2D" unique_id=2134811597 instance=ExtResource("30_ecoob")]
+position = Vector2(742, 677)
 scale = Vector2(1.3, 0.65)
-cleanup_mode = 1
 eco_id = &"tutorial_oil_platform"
+cleanup_mode = 1
 reward_points = 20
 restoration_weight = 2.0
+cleaned_by_default = null
+hide_when_cleaned = null
+disable_collision_when_cleaned = null
+clean_requires_past = null
+floating_text_offset = null
 
-[node name="TrashMark" parent="World2D/EcoOilWaste/DirtyVisual" index="0"]
-color = Color(0.04, 0.05, 0.055, 1)
-
-[node name="FuturePlantPlatform" parent="World2D" instance=ExtResource("31_ecofx")]
+[node name="FuturePlantPlatform" parent="World2D" unique_id=587507510 instance=ExtResource("31_ecofx")]
 position = Vector2(1010, 590)
 eco_id = &"tutorial_oil_platform"
 effect_type = 3
 
-[node name="EcoScrapGate" parent="World2D" instance=ExtResource("30_ecoob")]
-position = Vector2(875, 670)
-cleanup_mode = 1
+[node name="EcoScrapGate" parent="World2D" unique_id=1530723204 instance=ExtResource("30_ecoob")]
+position = Vector2(873, 687)
 eco_id = &"tutorial_scrap_gate"
+cleanup_mode = 1
 reward_points = 15
+restoration_weight = null
+cleaned_by_default = null
+hide_when_cleaned = null
+disable_collision_when_cleaned = null
+clean_requires_past = null
+floating_text_offset = null
 
-[node name="TrashMark" parent="World2D/EcoScrapGate/DirtyVisual" index="0"]
-color = Color(0.36, 0.35, 0.33, 1)
-
-[node name="FutureScrapGate" parent="World2D" instance=ExtResource("31_ecofx")]
+[node name="FutureScrapGate" parent="World2D" unique_id=1531161992 instance=ExtResource("31_ecofx")]
 position = Vector2(1180, 650)
 scale = Vector2(0.75, 1.7)
 eco_id = &"tutorial_scrap_gate"
 effect_type = 4
 
-[node name="DirtyBlock" parent="World2D/FutureScrapGate/DirtyFuture" index="0"]
-color = Color(0.3, 0.28, 0.26, 1)
-
-[node name="EcoLandfillClutter" parent="World2D" instance=ExtResource("30_ecoob")]
-position = Vector2(1040, 670)
+[node name="EcoLandfillClutter" parent="World2D" unique_id=2129076402 instance=ExtResource("30_ecoob")]
+position = Vector2(1024, 687)
 scale = Vector2(1.15, 0.9)
-cleanup_mode = 1
 eco_id = &"tutorial_landfill_clutter"
-reward_points = 10
+cleanup_mode = 1
+reward_points = null
+restoration_weight = null
+cleaned_by_default = null
+hide_when_cleaned = null
+disable_collision_when_cleaned = null
+clean_requires_past = null
+floating_text_offset = null
 
-[node name="TrashMark" parent="World2D/EcoLandfillClutter/DirtyVisual" index="0"]
-color = Color(0.24, 0.2, 0.18, 1)
-
-[node name="FutureLandfillClutter" parent="World2D" instance=ExtResource("31_ecofx")]
-position = Vector2(1375, 650)
+[node name="FutureLandfillClutter" parent="World2D" unique_id=436331626 instance=ExtResource("31_ecofx")]
+position = Vector2(1375, 634.00006)
 scale = Vector2(1.25, 1.1)
 eco_id = &"tutorial_landfill_clutter"
 effect_type = 0

@@ -12352,7 +12352,7 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_oyfmi")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jeted"]
-radius = 64.0
+radius = 96.0
 
 [node name="Level1" type="Node2D" unique_id=1610960536]
 script = ExtResource("1_jfhah")
@@ -12512,10 +12512,10 @@ position = Vector2(116, -763)
 metadata/_edit_lock_ = true
 
 [node name="LevelExit" type="Area2D" parent="." unique_id=1477918023]
-position = Vector2(1600, 2016)
+position = Vector2(2500, 500)
 collision_layer = 0
 script = ExtResource("13_8xvtc")
-next_level_path = "uid://chiyevmljwqe2"
+next_level_path = "res://scenes/ui/ending_screen.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelExit" unique_id=1432260363]
 shape = SubResource("CircleShape2D_jeted")

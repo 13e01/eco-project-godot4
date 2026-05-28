@@ -11,6 +11,7 @@ var _future_notice: Label
 var _interaction_prompt: Label
 var _future_flash: ColorRect
 var _eco_manager: Node
+var _last_restoration_percent := 0.0
 
 func _ready() -> void:
 	glitch_effect.visible = false
@@ -171,10 +172,16 @@ func _on_eco_points_changed(points: int, _delta: int) -> void:
 func _on_restoration_changed(percent: float, _restored_weight: float, _total_weight: float) -> void:
 	if _restoration_label:
 		_restoration_label.text = "Environment Restored: %d%%" % int(round(percent))
+	_show_restoration_milestone(_last_restoration_percent, percent)
+	_last_restoration_percent = percent
 
 func _on_future_changed(_eco_id: StringName) -> void:
+	_show_future_notice("Future changed")
+
+func _show_future_notice(text: String) -> void:
 	if not _future_notice:
 		return
+	_future_notice.text = text
 	_future_notice.modulate.a = 1.0
 	var tween := create_tween()
 	tween.tween_interval(0.8)
@@ -183,6 +190,14 @@ func _on_future_changed(_eco_id: StringName) -> void:
 		_future_flash.color.a = 0.18
 		var flash_tween := create_tween()
 		flash_tween.tween_property(_future_flash, "color:a", 0.0, 0.45)
+
+func _show_restoration_milestone(previous: float, current: float) -> void:
+	if previous < 25.0 and current >= 25.0:
+		_show_future_notice("Environment Recovering")
+	elif previous < 50.0 and current >= 50.0:
+		_show_future_notice("Future Stabilized")
+	elif previous < 75.0 and current >= 75.0:
+		_show_future_notice("Future Blooming")
 
 # Экран смерти "Лепешка"
 func display_lepeshka_screen() -> void:
