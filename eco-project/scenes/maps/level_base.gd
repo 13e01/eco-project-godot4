@@ -42,7 +42,7 @@ func _ready():
 	eco_polish_director = EcoPolishDirector.new()
 	eco_polish_director.name = "EcoPolishDirector"
 	add_child(eco_polish_director)
-	eco_polish_director.setup(self, $World2D, player, canvas_mod)
+	eco_polish_director.setup(self , $World2D, player, canvas_mod)
 	
 	update_world_state()
 	EcoManager.apply_registered_states()
@@ -61,21 +61,25 @@ func _process(delta):
 			$UI.play_time_tunnel_effect()
 		update_world_state()
 		print("Критический разряд! Возврат в прошлое...")
-		if has_node("AudioManager") or AudioManager: 
-			AudioManager.play_event(&"time_auto_eject", {"volume_db": -5.0})
+		if has_node("AudioManager") or AudioManager:
+			AudioManager.play_event(&"time_auto_eject", {"volume_db": - 5.0})
 
 func _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+		return
+
 	if player.is_dying or _final_sequence_started:
 		return
 
 	if event.is_action_pressed("switch_time"):
 		if time_cooldown_timer > 0.0:
-			AudioManager.play_event(&"time_switch_denied", {"volume_db": -9.0})
+			AudioManager.play_event(&"time_switch_denied", {"volume_db": - 9.0})
 			return
 
 		if not is_future and player.current_health <= 5:
 			print("Недостаточно заряда для прыжка!")
-			AudioManager.play_event(&"time_switch_denied", {"volume_db": -8.0})
+			AudioManager.play_event(&"time_switch_denied", {"volume_db": - 8.0})
 			return
 			
 		if has_node("UI") and $UI.has_method("play_time_tunnel_effect"):
@@ -84,7 +88,7 @@ func _input(event):
 		is_future = !is_future
 		time_cooldown_timer = TIME_COOLDOWN_DURATION
 		update_world_state()
-		AudioManager.play_event(&"time_switch_ok", {"volume_db": -4.0})
+		AudioManager.play_event(&"time_switch_ok", {"volume_db": - 4.0})
 
 func update_world_state():
 	nature_layer.visible = !is_future
@@ -108,7 +112,7 @@ func update_world_state():
 		# Было: Color(0.6, 0.5, 0.5) -> Красноватый/светло-коричневый
 		# Стало: Color(0.3, 0.3, 0.35) -> Темно-серый с легким холодным оттенком (чтобы "тлен" чувствовался)
 		# Если хочешь чистый серый, используй Color(0.3, 0.3, 0.3)
-		canvas_mod.color = Color(0.3, 0.3, 0.35) 
+		canvas_mod.color = Color(0.3, 0.3, 0.35)
 		# ----------------------
 	else:
 		tween.tween_property(nature_bg, "modulate:a", 1.0, 0.5)
@@ -134,7 +138,7 @@ func play_final_sequence(target_scene_path: String, trigger_position: Vector2) -
 
 	is_future = true
 	update_world_state()
-	AudioManager.play_event(&"future_changed", {"volume_db": -3.0, "pitch": 0.85})
+	AudioManager.play_event(&"future_changed", {"volume_db": - 3.0, "pitch": 0.85})
 
 	var camera := player.get_node_or_null("Camera2D") as Camera2D
 	if camera:

@@ -29,3 +29,6 @@ signal game_saved(slot: int)
 
 ## Запускается когда загрузка выполнена
 signal game_loaded(slot: int)
+
+## Запускается когда собран мусор
+signal garbage_collected
