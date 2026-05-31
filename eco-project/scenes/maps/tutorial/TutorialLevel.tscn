@@ -12361,7 +12361,84 @@ script = ExtResource("1_hn8v6")
 
 [node name="World2D" type="Node2D" parent="." unique_id=1526471709]
 
-[node name="TimeObject" parent="World2D" unique_id=1838654051 instance=ExtResource("15_88pae")]
+[node name="objects" type="Node2D" parent="World2D" unique_id=1080731450]
+
+[node name="EcoTrashShortcut" parent="World2D/objects" unique_id=685713634 instance=ExtResource("30_ecoob")]
+position = Vector2(352, 693)
+eco_id = &"tutorial_trash_shortcut"
+cleanup_mode = 1
+reward_points = null
+restoration_weight = null
+cleaned_by_default = null
+hide_when_cleaned = null
+disable_collision_when_cleaned = null
+clean_requires_past = null
+floating_text_offset = null
+
+[node name="EcoToxicBarrel" parent="World2D/objects" unique_id=939239817 instance=ExtResource("30_ecoob")]
+position = Vector2(144, 690)
+scale = Vector2(0.9, 1.2)
+eco_id = &"tutorial_toxic_barrel"
+cleanup_mode = 1
+reward_points = 15
+restoration_weight = 1.5
+cleaned_by_default = null
+hide_when_cleaned = null
+disable_collision_when_cleaned = null
+clean_requires_past = null
+floating_text_offset = null
+
+[node name="FutureToxicFloor" parent="World2D/objects" unique_id=1672688059 instance=ExtResource("31_ecofx")]
+position = Vector2(956.00006, 698)
+scale = Vector2(1.45, 0.45)
+eco_id = &"tutorial_toxic_barrel"
+effect_type = 4
+
+[node name="EcoOilWaste" parent="World2D/objects" unique_id=2134811597 instance=ExtResource("30_ecoob")]
+position = Vector2(728.00006, 856)
+scale = Vector2(1.3, 0.65)
+eco_id = &"tutorial_oil_platform"
+cleanup_mode = 1
+reward_points = 20
+restoration_weight = 2.0
+cleaned_by_default = null
+hide_when_cleaned = null
+disable_collision_when_cleaned = null
+clean_requires_past = null
+floating_text_offset = null
+
+[node name="EcoScrapGate" parent="World2D/objects" unique_id=1530723204 instance=ExtResource("30_ecoob")]
+position = Vector2(864, 693)
+eco_id = &"tutorial_scrap_gate"
+cleanup_mode = 1
+reward_points = 15
+restoration_weight = null
+cleaned_by_default = null
+hide_when_cleaned = null
+disable_collision_when_cleaned = null
+clean_requires_past = null
+floating_text_offset = null
+
+[node name="FutureScrapGate" parent="World2D/objects" unique_id=1531161992 instance=ExtResource("31_ecofx")]
+position = Vector2(1180, 650)
+scale = Vector2(0.75, 1.7)
+eco_id = &"tutorial_scrap_gate"
+effect_type = 4
+
+[node name="EcoLandfillClutter" parent="World2D/objects" unique_id=2129076402 instance=ExtResource("30_ecoob")]
+position = Vector2(1088, 693)
+scale = Vector2(1.15, 0.9)
+eco_id = &"tutorial_landfill_clutter"
+cleanup_mode = 1
+reward_points = null
+restoration_weight = null
+cleaned_by_default = null
+hide_when_cleaned = null
+disable_collision_when_cleaned = null
+clean_requires_past = null
+floating_text_offset = null
+
+[node name="TimeObject" parent="World2D/objects" unique_id=1838654051 instance=ExtResource("15_88pae")]
 position = Vector2(1169, 620)
 
 [node name="TileMapLayer_Nature" type="TileMapLayer" parent="World2D" unique_id=1869877635]
@@ -12480,97 +12557,6 @@ text = "Т
 п
 и
 к"
-
-[node name="EcoTrashShortcut" parent="World2D" unique_id=685713634 instance=ExtResource("30_ecoob")]
-position = Vector2(377, 690)
-eco_id = &"tutorial_trash_shortcut"
-cleanup_mode = 1
-reward_points = null
-restoration_weight = null
-cleaned_by_default = null
-hide_when_cleaned = null
-disable_collision_when_cleaned = null
-clean_requires_past = null
-floating_text_offset = null
-
-[node name="FutureShortcutBlock" parent="World2D" unique_id=195738613 instance=ExtResource("31_ecofx")]
-position = Vector2(610, 650)
-eco_id = &"tutorial_trash_shortcut"
-effect_type = 4
-
-[node name="EcoToxicBarrel" parent="World2D" unique_id=939239817 instance=ExtResource("30_ecoob")]
-position = Vector2(545, 670)
-scale = Vector2(0.9, 1.2)
-eco_id = &"tutorial_toxic_barrel"
-cleanup_mode = 1
-reward_points = 15
-restoration_weight = 1.5
-cleaned_by_default = null
-hide_when_cleaned = null
-disable_collision_when_cleaned = null
-clean_requires_past = null
-floating_text_offset = null
-
-[node name="FutureToxicFloor" parent="World2D" unique_id=1672688059 instance=ExtResource("31_ecofx")]
-position = Vector2(800, 700)
-scale = Vector2(1.45, 0.45)
-eco_id = &"tutorial_toxic_barrel"
-effect_type = 4
-
-[node name="EcoOilWaste" parent="World2D" unique_id=2134811597 instance=ExtResource("30_ecoob")]
-position = Vector2(742, 677)
-scale = Vector2(1.3, 0.65)
-eco_id = &"tutorial_oil_platform"
-cleanup_mode = 1
-reward_points = 20
-restoration_weight = 2.0
-cleaned_by_default = null
-hide_when_cleaned = null
-disable_collision_when_cleaned = null
-clean_requires_past = null
-floating_text_offset = null
-
-[node name="FuturePlantPlatform" parent="World2D" unique_id=587507510 instance=ExtResource("31_ecofx")]
-position = Vector2(1010, 590)
-eco_id = &"tutorial_oil_platform"
-effect_type = 3
-
-[node name="EcoScrapGate" parent="World2D" unique_id=1530723204 instance=ExtResource("30_ecoob")]
-position = Vector2(873, 687)
-eco_id = &"tutorial_scrap_gate"
-cleanup_mode = 1
-reward_points = 15
-restoration_weight = null
-cleaned_by_default = null
-hide_when_cleaned = null
-disable_collision_when_cleaned = null
-clean_requires_past = null
-floating_text_offset = null
-
-[node name="FutureScrapGate" parent="World2D" unique_id=1531161992 instance=ExtResource("31_ecofx")]
-position = Vector2(1180, 650)
-scale = Vector2(0.75, 1.7)
-eco_id = &"tutorial_scrap_gate"
-effect_type = 4
-
-[node name="EcoLandfillClutter" parent="World2D" unique_id=2129076402 instance=ExtResource("30_ecoob")]
-position = Vector2(1024, 687)
-scale = Vector2(1.15, 0.9)
-eco_id = &"tutorial_landfill_clutter"
-cleanup_mode = 1
-reward_points = null
-restoration_weight = null
-cleaned_by_default = null
-hide_when_cleaned = null
-disable_collision_when_cleaned = null
-clean_requires_past = null
-floating_text_offset = null
-
-[node name="FutureLandfillClutter" parent="World2D" unique_id=436331626 instance=ExtResource("31_ecofx")]
-position = Vector2(1375, 634.00006)
-scale = Vector2(1.25, 1.1)
-eco_id = &"tutorial_landfill_clutter"
-effect_type = 0
 
 [node name="Player" parent="." unique_id=1573313986 instance=ExtResource("9_ui2hx")]
 position = Vector2(300, 670)

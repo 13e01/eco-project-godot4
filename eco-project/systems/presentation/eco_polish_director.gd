@@ -69,14 +69,17 @@ func _build_layers() -> void:
 	_smog = ColorRect.new()
 	_smog.name = "FutureSmog"
 	_smog.set_anchors_preset(Control.PRESET_FULL_RECT)
-	_smog.color = Color(0.23, 0.18, 0.17, 0.0)
+	# ИСПРАВЛЕНО: Сделали смог серо-угольным вместо коричневатого
+	_smog.color = Color(0.15, 0.15, 0.16, 0.0)
 	_smog.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_future_atmosphere.add_child(_smog)
 
 	_corruption = ColorRect.new()
 	_corruption.name = "FutureCorruptionWash"
 	_corruption.set_anchors_preset(Control.PRESET_FULL_RECT)
-	_corruption.color = Color(0.48, 0.09, 0.12, 0.0)
+	# ИСПРАВЛЕНО: Убран ядрёно-красный Color(0.48, 0.09, 0.12). 
+	# Теперь это темно-серый затеняющий фильтр для атмосферы упадка.
+	_corruption.color = Color(0.12, 0.12, 0.14, 0.0)
 	_corruption.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_future_atmosphere.add_child(_corruption)
 
@@ -228,7 +231,9 @@ func _threshold_crossed(previous: float, current: float) -> bool:
 func _refresh_restoration_state(animate: bool) -> void:
 	var cleaned_ratio := clampf(_restoration_percent / 100.0, 0.0, 1.0)
 	if _canvas_modulate:
-		var future_dirty := Color(0.56, 0.45, 0.43)
+		# ИСПРАВЛЕНО: Было Color(0.56, 0.45, 0.43) — убрали тепло-розовый фильтр.
+		# Теперь тут чистый, глубокий тёмно-серый оттенок для загрязненного будущего.
+		var future_dirty := Color(0.32, 0.32, 0.35)
 		var future_clean := Color(0.92, 0.95, 0.82)
 		var past_clean := Color(1.0, 1.0, 1.0)
 		var target := future_dirty.lerp(future_clean, cleaned_ratio) if _is_future else past_clean.lerp(Color(1.02, 1.0, 0.94), cleaned_ratio * 0.35)

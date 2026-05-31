@@ -74,6 +74,7 @@ grow_vertical = 2
 color = Color(0.049776644, 0.049776644, 0.049776636, 1)
 
 [node name="LepeshkaText" type="Label" parent="DeathScreen" unique_id=160147320]
+auto_translate_mode = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -87,10 +88,10 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "DEATH_TITLE"
-auto_translate_mode = 1
 label_settings = SubResource("LabelSettings_f5cxw")
 
 [node name="Label" type="Label" parent="DeathScreen/LepeshkaText" unique_id=62821845]
+auto_translate_mode = 1
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -98,14 +99,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -280.0
-offset_top = 16.0
+offset_top = 56.0
 offset_right = 277.0
-offset_bottom = 64.0
+offset_bottom = 104.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 29
 text = "DEATH_SUBTITLE"
-auto_translate_mode = 1
 
 [node name="RoundProgressBar" type="Control" parent="." unique_id=1841521247]
 layout_mode = 3
