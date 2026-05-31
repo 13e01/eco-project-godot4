@@ -1,12 +1,9 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene format=3 uid="uid://43bdqao6eibh"]
 
-[ext_resource type="Script" path="res://scenes/ui/main_menu.gd" id="1_menu"]
-[ext_resource type="Shader" path="res://scenes/ui/eco_menu_contrast.gdshader" id="2_shader"]
+[ext_resource type="Script" uid="uid://q06y01ncd64k" path="res://scenes/ui/main_menu.gd" id="1_menu"]
+[ext_resource type="PackedScene" uid="uid://tflsbcyojch8" path="res://scenes/backgrounds/parallax_background.tscn" id="2_fe2o3"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_menu"]
-shader = ExtResource("2_shader")
-
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=2057939884]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,29 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_menu")
 
-[node name="EcoFutureContrast" type="ColorRect" parent="."]
-unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-material = SubResource("ShaderMaterial_menu")
-color = Color(1, 1, 1, 1)
-
-[node name="AtmosphereLines" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-color = Color(0, 0, 0, 0.18)
-
-[node name="Content" type="HBoxContainer" parent="."]
+[node name="Content" type="HBoxContainer" parent="." unique_id=1650575220]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,57 +25,58 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 72
 
-[node name="TitleBlock" type="VBoxContainer" parent="Content"]
+[node name="TitleBlock" type="VBoxContainer" parent="Content" unique_id=1997517923]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 theme_override_constants/separation = 12
 
-[node name="Title" type="Label" parent="Content/TitleBlock"]
+[node name="Title" type="Label" parent="Content/TitleBlock" unique_id=1624123729]
+auto_translate_mode = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "MENU_TITLE"
-auto_translate_mode = 1
 
-[node name="Subtitle" type="Label" parent="Content/TitleBlock"]
+[node name="Subtitle" type="Label" parent="Content/TitleBlock" unique_id=532303970]
+auto_translate_mode = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = "MENU_SUBTITLE"
-auto_translate_mode = 1
 
-[node name="ButtonPanel" type="VBoxContainer" parent="Content"]
+[node name="ButtonPanel" type="VBoxContainer" parent="Content" unique_id=173528555]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 12
 
-[node name="StartButton" type="Button" parent="Content/ButtonPanel"]
+[node name="StartButton" type="Button" parent="Content/ButtonPanel" unique_id=1776846094]
+auto_translate_mode = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "MENU_START"
-auto_translate_mode = 1
 
-[node name="ContinueButton" type="Button" parent="Content/ButtonPanel"]
+[node name="ContinueButton" type="Button" parent="Content/ButtonPanel" unique_id=977000366]
 unique_name_in_owner = true
+auto_translate_mode = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "MENU_CONTINUE"
-auto_translate_mode = 1
 
-[node name="SettingsButton" type="Button" parent="Content/ButtonPanel"]
+[node name="SettingsButton" type="Button" parent="Content/ButtonPanel" unique_id=1219745238]
+auto_translate_mode = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "MENU_SETTINGS"
-auto_translate_mode = 1
 
-[node name="QuitButton" type="Button" parent="Content/ButtonPanel"]
+[node name="QuitButton" type="Button" parent="Content/ButtonPanel" unique_id=101130525]
+auto_translate_mode = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
 text = "MENU_QUIT"
-auto_translate_mode = 1
 
-[node name="SettingsPanel" type="PanelContainer" parent="."]
+[node name="SettingsPanel" type="PanelContainer" parent="." unique_id=1833565708]
 unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -114,67 +90,69 @@ offset_bottom = 205.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SettingsBox" type="VBoxContainer" parent="SettingsPanel"]
+[node name="SettingsBox" type="VBoxContainer" parent="SettingsPanel" unique_id=592057597]
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="SettingsTitle" type="Label" parent="SettingsPanel/SettingsBox"]
+[node name="SettingsTitle" type="Label" parent="SettingsPanel/SettingsBox" unique_id=145049960]
+auto_translate_mode = 1
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "SETTINGS_TITLE"
-auto_translate_mode = 1
 horizontal_alignment = 1
 
-[node name="MasterLabel" type="Label" parent="SettingsPanel/SettingsBox"]
+[node name="MasterLabel" type="Label" parent="SettingsPanel/SettingsBox" unique_id=82683857]
+auto_translate_mode = 1
 layout_mode = 2
 text = "SETTINGS_MASTER_VOLUME"
-auto_translate_mode = 1
 
-[node name="MasterSlider" type="HSlider" parent="SettingsPanel/SettingsBox"]
+[node name="MasterSlider" type="HSlider" parent="SettingsPanel/SettingsBox" unique_id=2000651075]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="MusicLabel" type="Label" parent="SettingsPanel/SettingsBox"]
+[node name="MusicLabel" type="Label" parent="SettingsPanel/SettingsBox" unique_id=2091686428]
+auto_translate_mode = 1
 layout_mode = 2
 text = "SETTINGS_MUSIC_VOLUME"
-auto_translate_mode = 1
 
-[node name="MusicSlider" type="HSlider" parent="SettingsPanel/SettingsBox"]
+[node name="MusicSlider" type="HSlider" parent="SettingsPanel/SettingsBox" unique_id=882698956]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="SfxLabel" type="Label" parent="SettingsPanel/SettingsBox"]
+[node name="SfxLabel" type="Label" parent="SettingsPanel/SettingsBox" unique_id=689440371]
+auto_translate_mode = 1
 layout_mode = 2
 text = "SETTINGS_SFX_VOLUME"
-auto_translate_mode = 1
 
-[node name="SfxSlider" type="HSlider" parent="SettingsPanel/SettingsBox"]
+[node name="SfxSlider" type="HSlider" parent="SettingsPanel/SettingsBox" unique_id=900980932]
 unique_name_in_owner = true
 layout_mode = 2
 max_value = 1.0
 step = 0.01
 value = 1.0
 
-[node name="FullscreenToggle" type="CheckButton" parent="SettingsPanel/SettingsBox"]
+[node name="FullscreenToggle" type="CheckButton" parent="SettingsPanel/SettingsBox" unique_id=45595506]
 unique_name_in_owner = true
+auto_translate_mode = 1
 layout_mode = 2
 text = "SETTINGS_FULLSCREEN"
-auto_translate_mode = 1
 
-[node name="ResolutionOptions" type="OptionButton" parent="SettingsPanel/SettingsBox"]
+[node name="ResolutionOptions" type="OptionButton" parent="SettingsPanel/SettingsBox" unique_id=761234425]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="BackButton" type="Button" parent="SettingsPanel/SettingsBox"]
+[node name="BackButton" type="Button" parent="SettingsPanel/SettingsBox" unique_id=945126767]
+auto_translate_mode = 1
 layout_mode = 2
 text = "MENU_BACK"
-auto_translate_mode = 1
+
+[node name="ParallaxBackground" parent="." unique_id=1370530708 instance=ExtResource("2_fe2o3")]
 
 [connection signal="pressed" from="Content/ButtonPanel/StartButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Content/ButtonPanel/ContinueButton" to="." method="_on_continue_pressed"]

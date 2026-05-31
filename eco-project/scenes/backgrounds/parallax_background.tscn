@@ -15,6 +15,7 @@ scale = Vector2(2.2222223, 2.2222223)
 texture = ExtResource("1_gv5gl")
 
 [node name="ParallaxLayer_Trash" type="ParallaxLayer" parent="." unique_id=680946408]
+visible = false
 motion_scale = Vector2(0.5, 0.5)
 motion_mirroring = Vector2(1280, 0)
 

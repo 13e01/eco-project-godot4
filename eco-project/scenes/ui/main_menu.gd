@@ -4,9 +4,12 @@ const FIRST_LEVEL := "res://scenes/maps/tutorial/TutorialLevel.tscn"
 const SAVE_PATH := "user://eco_continue.cfg"
 const RESOLUTIONS := [Vector2i(1280, 720), Vector2i(1600, 900), Vector2i(1920, 1080)]
 
+# Настройка скорости движения фона (в пикселях в секунду)
+const SCROLL_SPEED := 40.0
+
+@onready var _parallax_bg: ParallaxBackground = $ParallaxBackground # Убедись, что имя узла в сцене совпадает!
 @onready var _settings_panel: Control = %SettingsPanel
 @onready var _continue_button: Button = %ContinueButton
-@onready var _contrast: ColorRect = %EcoFutureContrast
 @onready var _master_slider: HSlider = %MasterSlider
 @onready var _music_slider: HSlider = %MusicSlider
 @onready var _sfx_slider: HSlider = %SfxSlider
@@ -15,8 +18,6 @@ const RESOLUTIONS := [Vector2i(1280, 720), Vector2i(1600, 900), Vector2i(1920, 1
 @onready var _settings_box: VBoxContainer = $SettingsPanel/SettingsBox
 
 var _language_option: OptionButton
-
-var _time := 0.0
 var _key_rows: Dictionary = {}
 var _pending_rebind_action := ""
 var _rebind_overlay: Label
@@ -28,17 +29,19 @@ func _ready() -> void:
 	_sync_audio_sliders()
 	_build_language_selector()
 	_build_keybind_ui()
-	_connect_buttons(self )
+	_connect_buttons(self)
+	
 	if InputSettings.has_signal("bindings_changed") and not InputSettings.bindings_changed.is_connected(_refresh_keybind_labels):
 		InputSettings.bindings_changed.connect(_refresh_keybind_labels)
 	if not LocaleManager.locale_changed.is_connected(_on_locale_changed):
 		LocaleManager.locale_changed.connect(_on_locale_changed)
+		
 	AudioManager.set_time_era(false, 0.25)
 
 func _process(delta: float) -> void:
-	_time += delta
-	if _contrast.material is ShaderMaterial:
-		_contrast.material.set_shader_parameter("time", _time)
+	# Двигаем фон вправо. Чтобы он шел направо, смещение x должно увеличиваться
+	if _parallax_bg:
+		_parallax_bg.scroll_offset.x += SCROLL_SPEED * delta
 
 func _on_start_pressed() -> void:
 	_save_continue_path(FIRST_LEVEL)
@@ -98,7 +101,7 @@ func _build_language_selector() -> void:
 	lang_label.text = tr("SETTINGS_LANGUAGE")
 	lang_label.name = "LanguageLabel"
 	_settings_box.add_child(lang_label)
-	# Move before back button (which is always last)
+	
 	var back_btn := _settings_box.get_node_or_null("BackButton")
 	if back_btn:
 		_settings_box.move_child(lang_label, back_btn.get_index())
@@ -118,8 +121,6 @@ func _on_language_selected(index: int) -> void:
 		LocaleManager.set_locale(LocaleManager.SUPPORTED_LOCALES[index]["code"])
 
 func _on_locale_changed() -> void:
-	# Rebuild dynamically-created labels (keybinds, controls title, reset)
-	# Remove old dynamic controls
 	var keybind_list := _settings_box.get_node_or_null("KeybindList")
 	if keybind_list:
 		keybind_list.queue_free()
@@ -130,15 +131,15 @@ func _on_locale_changed() -> void:
 			child.queue_free()
 		if child is Label and child.name == "RebindOverlay":
 			child.queue_free()
-	# Update language label
+			
 	var lang_label := _settings_box.get_node_or_null("LanguageLabel")
 	if lang_label:
 		lang_label.text = tr("SETTINGS_LANGUAGE")
-	# Rebuild keybinds next frame so freed nodes are gone
+		
 	_key_rows.clear()
 	await get_tree().process_frame
 	_build_keybind_ui()
-	_connect_buttons(self )
+	_connect_buttons(self)
 
 func _populate_resolutions() -> void:
 	_resolution.clear()
