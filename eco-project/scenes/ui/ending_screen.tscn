@@ -62,14 +62,16 @@ theme_override_constants/separation = 14
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 48
-text = "THE FUTURE BREATHES"
+text = "ENDING_GOOD_TITLE"
+auto_translate_mode = 1
 horizontal_alignment = 1
 
 [node name="EndingSubtitle" type="Label" parent="TextBlock"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
-text = "The damage remains, but life has a route forward."
+text = "ENDING_GOOD_SUBTITLE"
+auto_translate_mode = 1
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -77,13 +79,15 @@ autowrap_mode = 3
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Environment Restored: 0%"
+text = "HUD_RESTORATION"
+auto_translate_mode = 1
 horizontal_alignment = 1
 
 [node name="Prompt" type="Label" parent="TextBlock"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 14
-text = "Press Enter"
+text = "ENDING_PRESS_ENTER"
+auto_translate_mode = 1
 horizontal_alignment = 1
 
 [node name="Fade" type="ColorRect" parent="."]

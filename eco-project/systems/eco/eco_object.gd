@@ -70,7 +70,7 @@ func request_cleanup(actor: Node = null) -> bool:
 	var manager := _manager()
 	if manager == null:
 		return false
-	var changed: bool = manager.clean_eco_object(eco_id, reward_points, restoration_weight, self)
+	var changed: bool = manager.clean_eco_object(eco_id, reward_points, restoration_weight, self )
 	if changed:
 		cleaned.emit(eco_id)
 		_spawn_feedback(actor)
@@ -135,8 +135,8 @@ func _manager() -> Node:
 
 func _interaction_text() -> String:
 	var input_settings := get_node_or_null("/root/InputSettings")
-	var key_text := input_settings.get_binding_text("interact") if input_settings and input_settings.has_method("get_binding_text") else "F"
-	return "[%s] Clean Pollution" % key_text
+	var key_text: String = input_settings.get_binding_text("interact") if input_settings and input_settings.has_method("get_binding_text") else "F"
+	return tr("HUD_CLEAN_POLLUTION") % key_text
 
 func _play_cleanup_animation() -> void:
 	var burst_parent := get_parent() as Node2D

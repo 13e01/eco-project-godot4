@@ -1,0 +1,71 @@
+# === ФАЙЛЫ ДЛЯ ИГНОРИРОВАНИЯ AI МОДЕЛЯМИ ===
+# Используй: claude/gemini - ignore these files
+
+# Временные файлы
+*.swp
+*.swo
+~*
+.DS_Store
+__pycache__/
+
+# Godot система
+.godot/
+*.import
+*.scn~
+*.gd~
+
+# Большие бинарные ассеты (ЭКОНОМИЯ ТОКЕНОВ)
+**.png
+**.jpg
+**.jpeg
+**.wav
+**.mp3
+**.ogg
+**.webp
+**.glb
+**.gltf
+**.blend
+**.fbx
+
+# Архивы
+**.zip
+**.tar.gz
+**.7z
+**.rar
+
+# IDE кеш (не нужен AI)
+.vscode/
+.idea/
+*.iml
+
+# Версионирование
+.git/
+.gitignore
+
+# Большие данные (если есть)
+data/raw/
+data/large/
+
+# Сохранения и пользовательские данные
+saves/
+user://
+*.save
+
+# Документация которая уже в памяти (опционально)
+docs/archive/
+docs/old/
+
+# Node modules если используется Node
+node_modules/
+package-lock.json
+
+# Python virtuals (если используется Python MCP)
+venv/
+env/
+.venv
+
+# Почему игнорируем:
+# - Бинарные ассеты занимают огромное количество токенов при индексировании
+# - Godot система уже в памяти в индексе
+# - IDE кеш не нужен для понимания кода
+# - Сохранения могут быть большими и менять часто

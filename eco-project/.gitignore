@@ -1,3 +1,35 @@
-# Godot 4+ specific ignores
+# Godot
 .godot/
-/android/
+*.tscn~
+*.gd~
+*.tres~
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Кеш
+__pycache__/
+*.pyc
+.cache/
+
+# Сохранения (игровые данные - не коммитим)
+user://
+saves/
+*.save
+
+# Ассеты 3rd party (опционально)
+addons/imported_assets/
+
+# Версионирование
+.git/
+
+# AI ignore list: .gitignore_ai

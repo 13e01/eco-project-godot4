@@ -5,13 +5,13 @@ signal bindings_changed
 const SAVE_PATH := "user://input_bindings.cfg"
 
 const ACTIONS := [
-	{"name": "move_left", "label": "Move Left", "keys": [KEY_A, KEY_LEFT]},
-	{"name": "move_right", "label": "Move Right", "keys": [KEY_D, KEY_RIGHT]},
-	{"name": "move_up", "label": "Move Up", "keys": [KEY_W, KEY_UP]},
-	{"name": "move_down", "label": "Move Down", "keys": [KEY_S, KEY_DOWN]},
-	{"name": "jump", "label": "Jump", "keys": [KEY_SPACE]},
-	{"name": "switch_time", "label": "Time Switch", "keys": [KEY_E]},
-	{"name": "interact", "label": "Interact", "keys": [KEY_F]},
+	{"name": "move_left", "label": "CONTROL_MOVE_LEFT", "keys": [KEY_A, KEY_LEFT]},
+	{"name": "move_right", "label": "CONTROL_MOVE_RIGHT", "keys": [KEY_D, KEY_RIGHT]},
+	{"name": "move_up", "label": "CONTROL_MOVE_UP", "keys": [KEY_W, KEY_UP]},
+	{"name": "move_down", "label": "CONTROL_MOVE_DOWN", "keys": [KEY_S, KEY_DOWN]},
+	{"name": "jump", "label": "CONTROL_JUMP", "keys": [KEY_SPACE]},
+	{"name": "switch_time", "label": "CONTROL_TIME_SWITCH", "keys": [KEY_E]},
+	{"name": "interact", "label": "CONTROL_INTERACT", "keys": [KEY_F]},
 ]
 
 func _ready() -> void:
@@ -44,7 +44,7 @@ func rebind_action(action_name: String, event: InputEventKey) -> void:
 func get_action_label(action_name: String) -> String:
 	for action_data in ACTIONS:
 		if String(action_data["name"]) == action_name:
-			return String(action_data["label"])
+			return tr(String(action_data["label"]))
 	return action_name.capitalize()
 
 func get_binding_text(action_name: String) -> String:
@@ -53,7 +53,7 @@ func get_binding_text(action_name: String) -> String:
 		if event is InputEventKey:
 			var key_event := event as InputEventKey
 			names.append(OS.get_keycode_string(key_event.physical_keycode))
-	return " / ".join(names) if not names.is_empty() else "Unbound"
+	return " / ".join(names) if not names.is_empty() else tr("UNBOUND")
 
 func save_bindings() -> void:
 	var config := ConfigFile.new()

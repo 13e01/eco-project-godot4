@@ -59,12 +59,14 @@ theme_override_constants/separation = 12
 [node name="Title" type="Label" parent="Content/TitleBlock"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "ECO SHIFT"
+text = "MENU_TITLE"
+auto_translate_mode = 1
 
 [node name="Subtitle" type="Label" parent="Content/TitleBlock"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
-text = "Past actions. Future scars. Visible repair."
+text = "MENU_SUBTITLE"
+auto_translate_mode = 1
 
 [node name="ButtonPanel" type="VBoxContainer" parent="Content"]
 custom_minimum_size = Vector2(300, 0)
@@ -75,23 +77,27 @@ theme_override_constants/separation = 12
 [node name="StartButton" type="Button" parent="Content/ButtonPanel"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
-text = "Start Game"
+text = "MENU_START"
+auto_translate_mode = 1
 
 [node name="ContinueButton" type="Button" parent="Content/ButtonPanel"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
-text = "Continue"
+text = "MENU_CONTINUE"
+auto_translate_mode = 1
 
 [node name="SettingsButton" type="Button" parent="Content/ButtonPanel"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
-text = "Settings"
+text = "MENU_SETTINGS"
+auto_translate_mode = 1
 
 [node name="QuitButton" type="Button" parent="Content/ButtonPanel"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 22
-text = "Quit"
+text = "MENU_QUIT"
+auto_translate_mode = 1
 
 [node name="SettingsPanel" type="PanelContainer" parent="."]
 unique_name_in_owner = true
@@ -115,12 +121,14 @@ theme_override_constants/separation = 12
 [node name="SettingsTitle" type="Label" parent="SettingsPanel/SettingsBox"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
-text = "Settings"
+text = "SETTINGS_TITLE"
+auto_translate_mode = 1
 horizontal_alignment = 1
 
 [node name="MasterLabel" type="Label" parent="SettingsPanel/SettingsBox"]
 layout_mode = 2
-text = "Master Volume"
+text = "SETTINGS_MASTER_VOLUME"
+auto_translate_mode = 1
 
 [node name="MasterSlider" type="HSlider" parent="SettingsPanel/SettingsBox"]
 unique_name_in_owner = true
@@ -131,7 +139,8 @@ value = 1.0
 
 [node name="MusicLabel" type="Label" parent="SettingsPanel/SettingsBox"]
 layout_mode = 2
-text = "Music Volume"
+text = "SETTINGS_MUSIC_VOLUME"
+auto_translate_mode = 1
 
 [node name="MusicSlider" type="HSlider" parent="SettingsPanel/SettingsBox"]
 unique_name_in_owner = true
@@ -142,7 +151,8 @@ value = 1.0
 
 [node name="SfxLabel" type="Label" parent="SettingsPanel/SettingsBox"]
 layout_mode = 2
-text = "SFX Volume"
+text = "SETTINGS_SFX_VOLUME"
+auto_translate_mode = 1
 
 [node name="SfxSlider" type="HSlider" parent="SettingsPanel/SettingsBox"]
 unique_name_in_owner = true
@@ -154,7 +164,8 @@ value = 1.0
 [node name="FullscreenToggle" type="CheckButton" parent="SettingsPanel/SettingsBox"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Fullscreen"
+text = "SETTINGS_FULLSCREEN"
+auto_translate_mode = 1
 
 [node name="ResolutionOptions" type="OptionButton" parent="SettingsPanel/SettingsBox"]
 unique_name_in_owner = true
@@ -162,7 +173,8 @@ layout_mode = 2
 
 [node name="BackButton" type="Button" parent="SettingsPanel/SettingsBox"]
 layout_mode = 2
-text = "Back"
+text = "MENU_BACK"
+auto_translate_mode = 1
 
 [connection signal="pressed" from="Content/ButtonPanel/StartButton" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Content/ButtonPanel/ContinueButton" to="." method="_on_continue_pressed"]

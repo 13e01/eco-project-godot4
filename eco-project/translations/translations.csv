@@ -1,0 +1,40 @@
+keys,en,ru,kk
+MENU_START,Start Game,Начать игру,Ойынды бастау
+MENU_CONTINUE,Continue,Продолжить,Жалғастыру
+MENU_SETTINGS,Settings,Настройки,Баптаулар
+MENU_QUIT,Quit,Выход,Шығу
+MENU_BACK,Back,Назад,Артқа
+MENU_TITLE,ECO SHIFT,ЭКО СДВИГ,ЭКО АУЫСЫМ
+MENU_SUBTITLE,"Past actions. Future scars. Visible repair.","Прошлые действия. Шрамы будущего. Видимое восстановление.","Өткен әрекеттер. Болашақ жарақаттары. Көрінетін қалпына келтіру."
+SETTINGS_TITLE,Settings,Настройки,Баптаулар
+SETTINGS_MASTER_VOLUME,Master Volume,Общая громкость,Жалпы дыбыс деңгейі
+SETTINGS_MUSIC_VOLUME,Music Volume,Громкость музыки,Музыка деңгейі
+SETTINGS_SFX_VOLUME,SFX Volume,Громкость эффектов,Эффект деңгейі
+SETTINGS_FULLSCREEN,Fullscreen,Полный экран,Толық экран
+SETTINGS_LANGUAGE,Language,Язык,Тіл
+SETTINGS_CONTROLS,Controls,Управление,Басқару
+SETTINGS_RESET_CONTROLS,Reset Controls,Сбросить управление,Басқаруды қалпына келтіру
+SETTINGS_PRESS_KEY,Press any key for %s...,Нажмите клавишу для %s...,Кез келген пернені басыңыз %s...
+CONTROL_MOVE_LEFT,Move Left,Влево,Солға жүру
+CONTROL_MOVE_RIGHT,Move Right,Вправо,Оңға жүру
+CONTROL_MOVE_UP,Move Up,Вверх,Жоғары жүру
+CONTROL_MOVE_DOWN,Move Down,Вниз,Төмен жүру
+CONTROL_JUMP,Jump,Прыжок,Секіру
+CONTROL_TIME_SWITCH,Time Switch,Переключение времени,Уақыт ауыстыру
+CONTROL_INTERACT,Interact,Взаимодействие,Әрекеттесу
+HUD_ECO,Eco %d,Эко %d,Эко %d
+HUD_RESTORATION,Environment Restored: %d%%,Среда восстановлена: %d%%,Қоршаған орта қалпына келтірілді: %d%%
+HUD_FUTURE_CHANGED,Future changed,Будущее изменилось,Болашақ өзгерді
+HUD_ENV_RECOVERING,Environment Recovering,Среда восстанавливается,Қоршаған орта қалпына келуде
+HUD_FUTURE_STABILIZED,Future Stabilized,Будущее стабилизировано,Болашақ тұрақтанды
+HUD_FUTURE_BLOOMING,Future Blooming,Будущее расцветает,Болашақ гүлденуде
+HUD_CLEAN_POLLUTION,[%s] Clean Pollution,[%s] Очистить загрязнение,[%s] Ластануды тазалау
+HUD_ECO_POPUP,+%d eco,+%d эко,+%d эко
+DEATH_TITLE,Paradox?,Парадокс?,Парадокс?
+DEATH_SUBTITLE,Maybe think about why this happened?,Может стоит подумать почему так?,Неліктен бұлай болды деп ойландыңыз ба?
+ENDING_GOOD_TITLE,THE FUTURE BREATHES,БУДУЩЕЕ ДЫШИТ,БОЛАШАҚ ТЫН АЛАДЫ
+ENDING_GOOD_SUBTITLE,"The damage remains, but life has a route forward.","Ущерб остался, но жизнь нашла путь вперёд.","Зиян қалды, бірақ өмір жолын тапты."
+ENDING_BAD_TITLE,THE FUTURE FADES,БУДУЩЕЕ УГАСАЕТ,БОЛАШАҚ СӨНІП БАРАДЫ
+ENDING_BAD_SUBTITLE,Too much was left buried. The last sprout still waits.,Слишком многое осталось погребённым. Последний росток всё ещё ждёт.,Тым көп нәрсе көмілді. Соңғы өскін әлі күтуде.
+ENDING_PRESS_ENTER,Press Enter,Нажмите Enter,Enter басыңыз
+UNBOUND,Unbound,Не назначено,Тағайындалмаған

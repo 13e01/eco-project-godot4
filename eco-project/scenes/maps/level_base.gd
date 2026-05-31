@@ -13,7 +13,7 @@ var is_future = false
 var eco_polish_director: Node2D
 var _final_sequence_started := false
 
-const TIME_COOLDOWN_DURATION = 2.0 
+const TIME_COOLDOWN_DURATION = 2.0
 var time_cooldown_timer = 0.0
 
 func _enter_tree():
@@ -28,8 +28,9 @@ func _ready():
 	nature_bg.modulate.a = 1.0
 	trash_bg.modulate.a = 0.0
 	
-	if player.has_signal("health_changed") and not player.health_changed.is_connected($UI.update_sprout_ui):
-		player.health_changed.connect($UI.update_sprout_ui)
+	if player.has_signal("health_changed") and has_node("UI") and $UI.has_method("update_sprout_ui"):
+		if not player.health_changed.is_connected(Callable($UI, "update_sprout_ui")):
+			player.health_changed.connect(Callable($UI, "update_sprout_ui"))
 	
 	if player.has_signal("player_crushed"):
 		player.player_crushed.connect(show_game_over)
@@ -40,7 +41,7 @@ func _ready():
 	eco_polish_director = EcoPolishDirector.new()
 	eco_polish_director.name = "EcoPolishDirector"
 	add_child(eco_polish_director)
-	eco_polish_director.setup(self, $World2D, player, canvas_mod)
+	eco_polish_director.setup(self , $World2D, player, canvas_mod)
 	
 	update_world_state()
 	EcoManager.apply_registered_states()
@@ -59,7 +60,7 @@ func _process(delta):
 			$UI.play_time_tunnel_effect()
 		update_world_state()
 		print("Критический разряд! Возврат в прошлое...")
-		AudioManager.play_event(&"time_auto_eject", {"volume_db": -5.0})
+		AudioManager.play_event(&"time_auto_eject", {"volume_db": - 5.0})
 
 func _input(event):
 	if player.is_dying or _final_sequence_started:
@@ -67,12 +68,12 @@ func _input(event):
 
 	if event.is_action_pressed("switch_time"):
 		if time_cooldown_timer > 0.0:
-			AudioManager.play_event(&"time_switch_denied", {"volume_db": -9.0})
+			AudioManager.play_event(&"time_switch_denied", {"volume_db": - 9.0})
 			return
 
 		if not is_future and player.current_health <= 5:
 			print("Недостаточно заряда для прыжка!")
-			AudioManager.play_event(&"time_switch_denied", {"volume_db": -8.0})
+			AudioManager.play_event(&"time_switch_denied", {"volume_db": - 8.0})
 			return
 			
 		if has_node("UI") and $UI.has_method("play_time_tunnel_effect"):
@@ -81,7 +82,7 @@ func _input(event):
 		is_future = !is_future
 		time_cooldown_timer = TIME_COOLDOWN_DURATION
 		update_world_state()
-		AudioManager.play_event(&"time_switch_ok", {"volume_db": -4.0})
+		AudioManager.play_event(&"time_switch_ok", {"volume_db": - 4.0})
 
 func update_world_state():
 	# 1. Управление видимостью и тайлами слоев
@@ -130,7 +131,7 @@ func play_final_sequence(target_scene_path: String, trigger_position: Vector2) -
 
 	is_future = true
 	update_world_state()
-	AudioManager.play_event(&"future_changed", {"volume_db": -3.0, "pitch": 0.85})
+	AudioManager.play_event(&"future_changed", {"volume_db": - 3.0, "pitch": 0.85})
 
 	var camera := player.get_node_or_null("Camera2D") as Camera2D
 	if camera:

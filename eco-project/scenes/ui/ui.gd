@@ -26,9 +26,11 @@ func _ready() -> void:
 	if time_shader and time_shader.material is ShaderMaterial:
 		time_shader.material.set_shader_parameter("effect_power", 0.0)
 
-	_connect_ui_sound_events(self)
+	_connect_ui_sound_events(self )
 	add_to_group("eco_ui")
 	_build_eco_hud()
+	if not LocaleManager.locale_changed.is_connected(_on_locale_changed):
+		LocaleManager.locale_changed.connect(_on_locale_changed)
 
 func connect_eco_manager(manager: Node) -> void:
 	_eco_manager = manager
@@ -48,14 +50,14 @@ func connect_eco_manager(manager: Node) -> void:
 
 func show_eco_popup(world_position: Vector2, points: int) -> void:
 	var popup := Label.new()
-	popup.text = "+%d eco" % points
+	popup.text = tr("HUD_ECO_POPUP") % points
 	popup.add_theme_font_size_override("font_size", 18)
 	popup.modulate = Color(0.54, 1.0, 0.62, 1.0)
 	popup.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	add_child(popup)
 	var canvas_position := get_viewport().get_canvas_transform() * world_position
 	popup.global_position = canvas_position
-	_play_audio_event(&"eco_coin", {"volume_db": -10.0})
+	_play_audio_event(&"eco_coin", {"volume_db": - 10.0})
 
 	var tween := create_tween()
 	tween.tween_property(popup, "global_position", canvas_position + Vector2(0, -32), 0.75)
@@ -87,7 +89,7 @@ func update_sprout_ui(health_value: float) -> void:
 	if health_value < 40.0:
 		if not _warning_played:
 			_warning_played = true
-			_play_audio_event(&"low_hp_tick", {"volume_db": -10.0})
+			_play_audio_event(&"low_hp_tick", {"volume_db": - 10.0})
 		glitch_effect.visible = true
 		var intensity := remap(health_value, 0.0, 40.0, 1.0, 0.0)
 		
@@ -102,7 +104,7 @@ func update_sprout_ui(health_value: float) -> void:
 
 # Эффект временного тоннеля
 func play_time_tunnel_effect() -> void:
-	_play_audio_event(&"time_switch_ok", {"volume_db": -8.0})
+	_play_audio_event(&"time_switch_ok", {"volume_db": - 8.0})
 	if time_shader and time_shader.material is ShaderMaterial:
 		var mat := time_shader.material as ShaderMaterial
 		
@@ -125,20 +127,20 @@ func _build_eco_hud() -> void:
 	add_child(panel)
 
 	_eco_points_label = Label.new()
-	_eco_points_label.text = "Eco 0"
+	_eco_points_label.text = tr("HUD_ECO") % 0
 	_eco_points_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_eco_points_label.add_theme_font_size_override("font_size", 18)
 	panel.add_child(_eco_points_label)
 
 	_restoration_label = Label.new()
-	_restoration_label.text = "Environment Restored: 0%"
+	_restoration_label.text = tr("HUD_RESTORATION") % 0
 	_restoration_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_restoration_label.modulate = Color(0.72, 0.92, 0.78, 0.9)
 	_restoration_label.add_theme_font_size_override("font_size", 14)
 	panel.add_child(_restoration_label)
 
 	_future_notice = Label.new()
-	_future_notice.text = "Future changed"
+	_future_notice.text = tr("HUD_FUTURE_CHANGED")
 	_future_notice.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_future_notice.modulate = Color(0.65, 0.95, 1.0, 0.0)
 	_future_notice.add_theme_font_size_override("font_size", 15)
@@ -152,7 +154,7 @@ func _build_eco_hud() -> void:
 	_interaction_prompt.offset_right = 150.0
 	_interaction_prompt.offset_bottom = -72.0
 	_interaction_prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	_interaction_prompt.text = "[F] Clean Pollution"
+	_interaction_prompt.text = tr("HUD_CLEAN_POLLUTION") % "F"
 	_interaction_prompt.modulate = Color(0.86, 1.0, 0.72, 0.0)
 	_interaction_prompt.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_interaction_prompt.add_theme_font_size_override("font_size", 18)
@@ -167,16 +169,16 @@ func _build_eco_hud() -> void:
 
 func _on_eco_points_changed(points: int, _delta: int) -> void:
 	if _eco_points_label:
-		_eco_points_label.text = "Eco %d" % points
+		_eco_points_label.text = tr("HUD_ECO") % points
 
 func _on_restoration_changed(percent: float, _restored_weight: float, _total_weight: float) -> void:
 	if _restoration_label:
-		_restoration_label.text = "Environment Restored: %d%%" % int(round(percent))
+		_restoration_label.text = tr("HUD_RESTORATION") % int(round(percent))
 	_show_restoration_milestone(_last_restoration_percent, percent)
 	_last_restoration_percent = percent
 
 func _on_future_changed(_eco_id: StringName) -> void:
-	_show_future_notice("Future changed")
+	_show_future_notice(tr("HUD_FUTURE_CHANGED"))
 
 func _show_future_notice(text: String) -> void:
 	if not _future_notice:
@@ -193,17 +195,17 @@ func _show_future_notice(text: String) -> void:
 
 func _show_restoration_milestone(previous: float, current: float) -> void:
 	if previous < 25.0 and current >= 25.0:
-		_show_future_notice("Environment Recovering")
+		_show_future_notice(tr("HUD_ENV_RECOVERING"))
 	elif previous < 50.0 and current >= 50.0:
-		_show_future_notice("Future Stabilized")
+		_show_future_notice(tr("HUD_FUTURE_STABILIZED"))
 	elif previous < 75.0 and current >= 75.0:
-		_show_future_notice("Future Blooming")
+		_show_future_notice(tr("HUD_FUTURE_BLOOMING"))
 
 # Экран смерти "Лепешка"
 func display_lepeshka_screen() -> void:
-	_play_audio_event(&"death", {"volume_db": -3.0})
-	glitch_effect.visible = false 
-	if time_shader: 
+	_play_audio_event(&"death", {"volume_db": - 3.0})
+	glitch_effect.visible = false
+	if time_shader:
 		time_shader.visible = false
 		
 	death_screen.visible = true
@@ -246,3 +248,21 @@ func _play_audio_event(event_name: StringName, options: Dictionary = {}) -> void
 	var audio_manager := get_node_or_null("/root/AudioManager")
 	if audio_manager and audio_manager.has_method("play_event"):
 		audio_manager.play_event(event_name, options)
+
+func _on_locale_changed() -> void:
+	if _eco_points_label:
+		var points := 0
+		if _eco_manager and _eco_manager.get("eco_points") != null:
+			points = int(_eco_manager.eco_points)
+		_eco_points_label.text = tr("HUD_ECO") % points
+	if _restoration_label:
+		var percent := 0.0
+		if _eco_manager and _eco_manager.has_method("get_restoration_percent"):
+			percent = _eco_manager.get_restoration_percent()
+		_restoration_label.text = tr("HUD_RESTORATION") % int(round(percent))
+	if _future_notice:
+		_future_notice.text = tr("HUD_FUTURE_CHANGED")
+	if _interaction_prompt and _interaction_prompt.modulate.a > 0.0:
+		var input_settings := get_node_or_null("/root/InputSettings")
+		var key_text: String = input_settings.get_binding_text("interact") if input_settings and input_settings.has_method("get_binding_text") else "F"
+		_interaction_prompt.text = tr("HUD_CLEAN_POLLUTION") % key_text

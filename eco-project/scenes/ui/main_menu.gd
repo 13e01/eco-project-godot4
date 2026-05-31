@@ -14,6 +14,8 @@ const RESOLUTIONS := [Vector2i(1280, 720), Vector2i(1600, 900), Vector2i(1920, 1
 @onready var _resolution: OptionButton = %ResolutionOptions
 @onready var _settings_box: VBoxContainer = $SettingsPanel/SettingsBox
 
+var _language_option: OptionButton
+
 var _time := 0.0
 var _key_rows: Dictionary = {}
 var _pending_rebind_action := ""
@@ -24,10 +26,13 @@ func _ready() -> void:
 	_continue_button.disabled = not FileAccess.file_exists(SAVE_PATH)
 	_populate_resolutions()
 	_sync_audio_sliders()
+	_build_language_selector()
 	_build_keybind_ui()
-	_connect_buttons(self)
+	_connect_buttons(self )
 	if InputSettings.has_signal("bindings_changed") and not InputSettings.bindings_changed.is_connected(_refresh_keybind_labels):
 		InputSettings.bindings_changed.connect(_refresh_keybind_labels)
+	if not LocaleManager.locale_changed.is_connected(_on_locale_changed):
+		LocaleManager.locale_changed.connect(_on_locale_changed)
 	AudioManager.set_time_era(false, 0.25)
 
 func _process(delta: float) -> void:
@@ -88,10 +93,57 @@ func _unhandled_input(event: InputEvent) -> void:
 		_update_rebind_overlay()
 		get_viewport().set_input_as_handled()
 
+func _build_language_selector() -> void:
+	var lang_label := Label.new()
+	lang_label.text = tr("SETTINGS_LANGUAGE")
+	lang_label.name = "LanguageLabel"
+	_settings_box.add_child(lang_label)
+	# Move before back button (which is always last)
+	var back_btn := _settings_box.get_node_or_null("BackButton")
+	if back_btn:
+		_settings_box.move_child(lang_label, back_btn.get_index())
+
+	_language_option = OptionButton.new()
+	_language_option.name = "LanguageOption"
+	for locale_data in LocaleManager.SUPPORTED_LOCALES:
+		_language_option.add_item(String(locale_data["label"]))
+	_language_option.select(LocaleManager.get_current_index())
+	_language_option.item_selected.connect(_on_language_selected)
+	_settings_box.add_child(_language_option)
+	if back_btn:
+		_settings_box.move_child(_language_option, back_btn.get_index())
+
+func _on_language_selected(index: int) -> void:
+	if index >= 0 and index < LocaleManager.SUPPORTED_LOCALES.size():
+		LocaleManager.set_locale(LocaleManager.SUPPORTED_LOCALES[index]["code"])
+
+func _on_locale_changed() -> void:
+	# Rebuild dynamically-created labels (keybinds, controls title, reset)
+	# Remove old dynamic controls
+	var keybind_list := _settings_box.get_node_or_null("KeybindList")
+	if keybind_list:
+		keybind_list.queue_free()
+	for child in _settings_box.get_children():
+		if child is Label and child.name == "ControlsTitle":
+			child.queue_free()
+		if child is Button and child.name == "ResetControlsBtn":
+			child.queue_free()
+		if child is Label and child.name == "RebindOverlay":
+			child.queue_free()
+	# Update language label
+	var lang_label := _settings_box.get_node_or_null("LanguageLabel")
+	if lang_label:
+		lang_label.text = tr("SETTINGS_LANGUAGE")
+	# Rebuild keybinds next frame so freed nodes are gone
+	_key_rows.clear()
+	await get_tree().process_frame
+	_build_keybind_ui()
+	_connect_buttons(self )
+
 func _populate_resolutions() -> void:
 	_resolution.clear()
-	for size in RESOLUTIONS:
-		_resolution.add_item("%dx%d" % [size.x, size.y])
+	for resolution_size in RESOLUTIONS:
+		_resolution.add_item("%dx%d" % [resolution_size.x, resolution_size.y])
 	_resolution.select(0)
 
 func _sync_audio_sliders() -> void:
@@ -102,7 +154,7 @@ func _sync_audio_sliders() -> void:
 
 func _build_keybind_ui() -> void:
 	var title := Label.new()
-	title.text = "Controls"
+	title.text = tr("SETTINGS_CONTROLS")
 	title.add_theme_font_size_override("font_size", 22)
 	title.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_settings_box.add_child(title)
@@ -131,7 +183,7 @@ func _build_keybind_ui() -> void:
 		_key_rows[action_name] = key_button
 
 	var reset_button := Button.new()
-	reset_button.text = "Reset Controls"
+	reset_button.text = tr("SETTINGS_RESET_CONTROLS")
 	reset_button.pressed.connect(_reset_controls)
 	_settings_box.add_child(reset_button)
 
@@ -163,7 +215,7 @@ func _update_rebind_overlay() -> void:
 		_rebind_overlay.modulate.a = 0.0
 		_refresh_keybind_labels()
 		return
-	_rebind_overlay.text = "Press any key for %s..." % InputSettings.get_action_label(_pending_rebind_action)
+	_rebind_overlay.text = tr("SETTINGS_PRESS_KEY") % InputSettings.get_action_label(_pending_rebind_action)
 	_rebind_overlay.modulate.a = 1.0
 
 func _set_bus_linear(bus_name: String, value: float) -> void:

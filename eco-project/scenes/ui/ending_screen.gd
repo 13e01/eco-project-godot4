@@ -26,20 +26,20 @@ func _unhandled_input(event: InputEvent) -> void:
 		SceneChanger.change_level(MAIN_MENU)
 
 func _setup_scene() -> void:
-	_percent.text = "Environment Restored: %d%%" % int(round(_restoration))
+	_percent.text = tr("HUD_RESTORATION") % int(round(_restoration))
 	if _good:
 		_background.color = Color(0.18, 0.28, 0.24, 1.0)
 		_sun.color = Color(1.0, 0.86, 0.48, 0.0)
 		_glitch.color = Color(0.2, 0.7, 0.48, 0.0)
-		_title.text = "THE FUTURE BREATHES"
-		_subtitle.text = "The damage remains, but life has a route forward."
+		_title.text = tr("ENDING_GOOD_TITLE")
+		_subtitle.text = tr("ENDING_GOOD_SUBTITLE")
 		AudioManager.set_time_era(false, 1.4)
 	else:
 		_background.color = Color(0.12, 0.1, 0.1, 1.0)
 		_sun.color = Color(0.55, 0.22, 0.18, 0.0)
 		_glitch.color = Color(0.58, 0.08, 0.12, 0.0)
-		_title.text = "THE FUTURE FADES"
-		_subtitle.text = "Too much was left buried. The last sprout still waits."
+		_title.text = tr("ENDING_BAD_TITLE")
+		_subtitle.text = tr("ENDING_BAD_SUBTITLE")
 		AudioManager.set_time_era(true, 1.4)
 	_build_plants()
 

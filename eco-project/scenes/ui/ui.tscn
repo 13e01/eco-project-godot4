@@ -86,8 +86,8 @@ offset_right = 42.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "Парадокс?
-"
+text = "DEATH_TITLE"
+auto_translate_mode = 1
 label_settings = SubResource("LabelSettings_f5cxw")
 
 [node name="Label" type="Label" parent="DeathScreen/LepeshkaText" unique_id=62821845]
@@ -104,7 +104,8 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 29
-text = "Может стоит подумать почему так?"
+text = "DEATH_SUBTITLE"
+auto_translate_mode = 1
 
 [node name="RoundProgressBar" type="Control" parent="." unique_id=1841521247]
 layout_mode = 3
