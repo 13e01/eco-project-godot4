@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://wosemhnmdfe" path="res://scenes/objects/decor/bush_3.tscn" id="3_jpp3n"]
 [ext_resource type="PackedScene" uid="uid://8h2dhy2wiqec" path="res://scenes/objects/decor/stone_v.tscn" id="4_41t1o"]
 [ext_resource type="PackedScene" uid="uid://cs1pfbhylp53v" path="res://scenes/ui/ui.tscn" id="4_47dfq"]
+[ext_resource type="PackedScene" path="res://scenes/ui/mobile_controls.tscn" id="4_mobile"]
 [ext_resource type="Texture2D" uid="uid://cejagtf24us54" path="res://assets/free-swamp-game-tileset-pixel-art/3 Objects/Grass/1.png" id="4_lyod1"]
 [ext_resource type="Texture2D" uid="uid://cgomjc5uok2na" path="res://assets/free-swamp-game-tileset-pixel-art/3 Objects/Grass/2.png" id="5_g44oc"]
 [ext_resource type="PackedScene" uid="uid://do31r5s5nieoc" path="res://scenes/objects/decor/willow_2.tscn" id="5_umduj"]
@@ -21,7 +22,6 @@
 [ext_resource type="Script" uid="uid://b826wmv0mgywb" path="res://datas/SceneChanger/level_exit.gd" id="13_8xvtc"]
 [ext_resource type="PackedScene" uid="uid://bwq82xlm242k" path="res://scenes/objects/decor/bush_1.tscn" id="14_ton1b"]
 [ext_resource type="PackedScene" uid="uid://chjhdiwr6n4cl" path="res://scenes/objects/decor/willow_1.tscn" id="18_41t1o"]
-[ext_resource type="Script" uid="uid://pxrxd5wee0i1" path="res://systems/eco/eco_object.gd" id="20_qc5cr"]
 [ext_resource type="PackedScene" path="res://scenes/eco_objects/eco_object.tscn" id="30_ecoob"]
 [ext_resource type="PackedScene" path="res://scenes/eco_objects/eco_future_effect.tscn" id="31_ecofx"]
 
@@ -12479,7 +12479,6 @@ cleanup_mode = 1
 position = Vector2(1025, -760)
 scale = Vector2(1.25, 1.1)
 eco_id = &"level1_machine_waste"
-effect_type = 2
 
 [node name="EcoExtraToxicBarrel" parent="World2D" unique_id=12330983 instance=ExtResource("30_ecoob")]
 position = Vector2(1672, 848)
@@ -12519,10 +12518,43 @@ cleanup_mode = 1
 reward_points = 20
 restoration_weight = 2.0
 
+[node name="EcoCleanupToxicBank" parent="World2D" unique_id=2046998583 instance=ExtResource("30_ecoob")]
+position = Vector2(430, 833)
+eco_id = &"level1_cleanup_toxic_bank"
+cleanup_mode = 1
+reward_points = 15
+restoration_weight = 1.5
+
+[node name="EcoCleanupScrapMid" parent="World2D" unique_id=1711066173 instance=ExtResource("30_ecoob")]
+position = Vector2(1328, 812)
+eco_id = &"level1_cleanup_scrap_mid"
+cleanup_mode = 1
+
+[node name="EcoCleanupOilRise" parent="World2D" unique_id=196787165 instance=ExtResource("30_ecoob")]
+position = Vector2(1502, 748)
+eco_id = &"level1_cleanup_oil_rise"
+cleanup_mode = 1
+reward_points = 20
+restoration_weight = 2.0
+
+[node name="EcoCleanupScrapRidge" parent="World2D" unique_id=494158645 instance=ExtResource("30_ecoob")]
+position = Vector2(2018, 622)
+eco_id = &"level1_cleanup_scrap_ridge"
+cleanup_mode = 1
+
+[node name="EcoCleanupToxicExit" parent="World2D" unique_id=885065431 instance=ExtResource("30_ecoob")]
+position = Vector2(1913, 774)
+eco_id = &"level1_cleanup_toxic_exit"
+cleanup_mode = 1
+reward_points = 15
+restoration_weight = 1.5
+
 [node name="Player" parent="." unique_id=1573313986 instance=ExtResource("3_gdtxo")]
 position = Vector2(116, -763)
 
 [node name="UI" parent="." unique_id=791356090 instance=ExtResource("4_47dfq")]
+
+[node name="MobileControls" parent="." instance=ExtResource("4_mobile")]
 
 [node name="ParallaxBackground" parent="." unique_id=1370530708 instance=ExtResource("2_303ld")]
 
