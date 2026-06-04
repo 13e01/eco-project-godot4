@@ -42,6 +42,10 @@ func load_game(slot: int) -> Dictionary:
 		push_error("Данные сохранения повреждены: %s" % save_path)
 		return {}
 	
+	# Load ecosystem state
+	if data.has("eco_data"):
+		EcoManager.load_save_data(data["eco_data"])
+	
 	EventBus.game_loaded.emit(slot)
 	return data
 
@@ -61,5 +65,6 @@ func _collect_save_data() -> Dictionary:
 	return {
 		"timestamp": Time.get_unix_time_from_system(),
 		"player_data": {},
-		"playtime": 0
+		"playtime": 0,
+		"eco_data": EcoManager.get_save_data()
 	}

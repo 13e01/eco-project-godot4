@@ -28,6 +28,7 @@ var _nearby_actor: Node
 @onready var _clean_visual: Node2D = get_node_or_null("CleanVisual")
 
 func _ready() -> void:
+	_ensure_unique_cleanup_id()
 	add_to_group("eco_objects")
 	add_to_group("time_objects")
 	_build_pixel_trash_visual()
@@ -132,6 +133,19 @@ func _spawn_feedback(_actor: Node) -> void:
 
 func _manager() -> Node:
 	return get_node_or_null("/root/EcoManager")
+
+func _ensure_unique_cleanup_id() -> void:
+	if eco_id == &"":
+		return
+	var base_id := String(eco_id)
+	for node in get_tree().get_nodes_in_group("eco_objects"):
+		if node == self:
+			continue
+		if String(node.get("eco_id")) == base_id:
+			var suffix := String(get_path()).replace("/", "_").replace("@", "").replace(":", "_")
+			eco_id = StringName("%s_%s" % [base_id, suffix])
+			push_warning("Duplicate EcoObject eco_id '%s' remapped to '%s'." % [base_id, String(eco_id)])
+			return
 
 func _interaction_text() -> String:
 	var input_settings := get_node_or_null("/root/InputSettings")

@@ -83,5 +83,5 @@ func _apply_keys(action_name: String, keys: Array) -> void:
 	InputMap.action_erase_events(action_name)
 	for key in keys:
 		var event := InputEventKey.new()
-		event.physical_keycode = int(key)
+		event.physical_keycode = int(key) as Key
 		InputMap.action_add_event(action_name, event)

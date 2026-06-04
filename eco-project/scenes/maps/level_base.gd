@@ -20,7 +20,10 @@ func _enter_tree():
 	var level_id := scene_file_path
 	if level_id.is_empty():
 		level_id = name
-	EcoManager.begin_level(level_id)
+	# Keep existing state when transitioning between levels (not reloading same level)
+	var current_level := EcoManager.get_current_level_id()
+	var keep_state := current_level != "" and current_level != level_id
+	EcoManager.begin_level(level_id, keep_state)
 
 func _ready():
 	nature_bg.visible = true

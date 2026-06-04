@@ -12569,4 +12569,4 @@ position = Vector2(300, 670)
 
 [node name="LevelExit" parent="." unique_id=1477918023 instance=ExtResource("26_v7d8t")]
 position = Vector2(2153, 1319)
-next_level_path = "uid://chiyevmljwqe2"
+next_level_path = "res://level_1.tscn"

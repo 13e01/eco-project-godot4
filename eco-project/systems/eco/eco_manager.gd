@@ -12,14 +12,23 @@ var _current_level_id: String = ""
 var _restored_weight: float = 0.0
 var _total_weight: float = 0.0
 
+func get_current_level_id() -> String:
+	return _current_level_id
+
 func begin_level(level_id: String, keep_existing_state: bool = false) -> void:
 	if _current_level_id == level_id and keep_existing_state:
 		return
 	_current_level_id = level_id
+	_recalculate_restoration()
+	eco_points_changed.emit(eco_points, 0)
+
+func reset_journey_progress() -> void:
 	_registered_objects.clear()
 	eco_object_states.clear()
 	eco_points = 0
-	_recalculate_restoration()
+	_restored_weight = 0.0
+	_total_weight = 0.0
+	restoration_changed.emit(0.0, _restored_weight, _total_weight)
 	eco_points_changed.emit(eco_points, 0)
 
 func register_eco_object(eco_id: StringName, reward: int, restoration_weight: float, cleaned_by_default: bool = false) -> void:
@@ -95,13 +104,15 @@ func get_save_data() -> Dictionary:
 	return {
 		"level_id": _current_level_id,
 		"eco_points": eco_points,
-		"eco_object_states": eco_object_states.duplicate(true)
+		"eco_object_states": eco_object_states.duplicate(true),
+		"registered_objects": _registered_objects.duplicate(true)
 	}
 
 func load_save_data(data: Dictionary) -> void:
 	_current_level_id = String(data.get("level_id", _current_level_id))
 	eco_points = int(data.get("eco_points", 0))
 	eco_object_states = Dictionary(data.get("eco_object_states", {})).duplicate(true)
+	_registered_objects = Dictionary(data.get("registered_objects", _registered_objects)).duplicate(true)
 	_recalculate_restoration()
 	apply_registered_states()
 

@@ -19,9 +19,11 @@ signal game_ended(reason: String)
 signal player_damaged(amount: int)
 
 ## Запускается когда игрок умирает
+@warning_ignore("unused_signal")
 signal player_died(reason: String)
 
 ## Запускается когда экосистема меняется
+@warning_ignore("unused_signal")
 signal ecosystem_changed(new_state: Resource)
 
 ## Запускается когда сохранение выполнено

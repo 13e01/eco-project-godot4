@@ -204,15 +204,15 @@ func _collect_audio_paths(dir_path: String, result: PackedStringArray) -> void:
 		return
 	dir.list_dir_begin()
 	while true:
-		var name: String = dir.get_next()
-		if name.is_empty():
+		var file_name: String = dir.get_next()
+		if file_name.is_empty():
 			break
-		if name.begins_with("."):
+		if file_name.begins_with("."):
 			continue
-		var child_path: String = dir_path.path_join(name)
+		var child_path: String = dir_path.path_join(file_name)
 		if dir.current_is_dir():
 			_collect_audio_paths(child_path, result)
-		elif name.to_lower().ends_with(".ogg"):
+		elif file_name.to_lower().ends_with(".ogg"):
 			result.append(child_path)
 	dir.list_dir_end()
 

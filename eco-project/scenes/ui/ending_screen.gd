@@ -1,6 +1,6 @@
 extends Control
 
-const GOOD_ENDING_PERCENT := 70.0
+const GOOD_ENDING_PERCENT := 65.0
 const MAIN_MENU := "res://scenes/ui/main_menu.tscn"
 
 @onready var _background: ColorRect = %Background

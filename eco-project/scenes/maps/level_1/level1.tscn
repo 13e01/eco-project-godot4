@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://b826wmv0mgywb" path="res://datas/SceneChanger/level_exit.gd" id="13_8xvtc"]
 [ext_resource type="PackedScene" uid="uid://bwq82xlm242k" path="res://scenes/objects/decor/bush_1.tscn" id="14_ton1b"]
 [ext_resource type="PackedScene" uid="uid://chjhdiwr6n4cl" path="res://scenes/objects/decor/willow_1.tscn" id="18_41t1o"]
+[ext_resource type="Script" uid="uid://pxrxd5wee0i1" path="res://systems/eco/eco_object.gd" id="20_qc5cr"]
 [ext_resource type="PackedScene" path="res://scenes/eco_objects/eco_object.tscn" id="30_ecoob"]
 [ext_resource type="PackedScene" path="res://scenes/eco_objects/eco_future_effect.tscn" id="31_ecofx"]
 
@@ -12379,7 +12380,7 @@ position = Vector2(522, 781)
 position = Vector2(1522, 856)
 
 [node name="willow3" parent="World2D/TileMapLayer_Nature/objects" unique_id=633885385 instance=ExtResource("5_umduj")]
-position = Vector2(1771, 798)
+position = Vector2(1789, 794)
 flip_h = true
 
 [node name="bush4" parent="World2D/TileMapLayer_Nature/objects" unique_id=96645424 instance=ExtResource("7_umduj")]
@@ -12478,7 +12479,45 @@ cleanup_mode = 1
 position = Vector2(1025, -760)
 scale = Vector2(1.25, 1.1)
 eco_id = &"level1_machine_waste"
-effect_type = 0
+effect_type = 2
+
+[node name="EcoExtraToxicBarrel" parent="World2D" unique_id=12330983 instance=ExtResource("30_ecoob")]
+position = Vector2(1672, 848)
+eco_id = &"level1_extra_toxic_barrel"
+cleanup_mode = 1
+reward_points = 15
+restoration_weight = 1.5
+
+[node name="EcoExtraToxicBarrel2" parent="World2D" unique_id=1210417231 instance=ExtResource("30_ecoob")]
+position = Vector2(282, 819)
+eco_id = &"level1_extra_toxic_barrel_2"
+cleanup_mode = 1
+reward_points = 15
+restoration_weight = 1.5
+
+[node name="EcoExtraScrap" parent="World2D" unique_id=1916759116 instance=ExtResource("30_ecoob")]
+position = Vector2(761, 772)
+eco_id = &"level1_extra_scrap"
+cleanup_mode = 1
+
+[node name="EcoExtraScrap2" parent="World2D" unique_id=1142400148 instance=ExtResource("30_ecoob")]
+position = Vector2(2174, 659)
+eco_id = &"level1_extra_scrap_2"
+cleanup_mode = 1
+
+[node name="EcoExtraOil" parent="World2D" unique_id=1735343649 instance=ExtResource("30_ecoob")]
+position = Vector2(1064, 854)
+eco_id = &"level1_extra_oil"
+cleanup_mode = 1
+reward_points = 20
+restoration_weight = 2.0
+
+[node name="EcoExtraOil2" parent="World2D" unique_id=1030753469 instance=ExtResource("30_ecoob")]
+position = Vector2(1881, 421)
+eco_id = &"level1_extra_oil_2"
+cleanup_mode = 1
+reward_points = 20
+restoration_weight = 2.0
 
 [node name="Player" parent="." unique_id=1573313986 instance=ExtResource("3_gdtxo")]
 position = Vector2(116, -763)
